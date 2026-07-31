@@ -1,0 +1,172 @@
+{
+  "model": "deepseek-v4-flash",
+  "thinking": "high",
+  "prompt": "just-solve",
+  "agent_type": "opencode",
+  "agent_version": "1.18.10",
+  "num_problems": 3,
+  "num_checkpoints": 17,
+  "expected_checkpoints": 17,
+  "costs": {
+    "checkpoint": {
+      "mean": 0.03991180875294118,
+      "stddev": 0.026763052015347063,
+      "min": 0.007049128799999999,
+      "max": 0.09677813040000002,
+      "median": 0.03283252559999999,
+      "count": 17
+    },
+    "problem": {
+      "mean": 0.22616691626666668,
+      "stddev": 0.05068264098106722,
+      "min": 0.1829796136,
+      "max": 0.28196397040000004,
+      "median": 0.21355716480000003,
+      "count": 3
+    },
+    "total": 0.6785007488
+  },
+  "time": {
+    "checkpoint": {
+      "mean": 751.7622722352942,
+      "stddev": 514.9420503166012,
+      "min": 147.170301,
+      "max": 2049.616895,
+      "median": 588.899296,
+      "count": 17
+    },
+    "problem": {
+      "mean": 4259.986209333333,
+      "stddev": 931.897581698473,
+      "min": 3192.65477,
+      "max": 4912.124718,
+      "median": 4675.17914,
+      "count": 3
+    }
+  },
+  "tokens": {
+    "input": 710044,
+    "output": 420037,
+    "cache_read": 81053696,
+    "cache_write": 0,
+    "reasoning": 837621,
+    "problem": {
+      "input": 236681.33333333334,
+      "output": 140012.33333333334,
+      "cache_read": 27017898.666666668,
+      "cache_write": 0.0,
+      "reasoning": 279207.0
+    },
+    "checkpoint": {
+      "input": 41767.294117647056,
+      "output": 24708.058823529413,
+      "cache_read": 4767864.470588235,
+      "cache_write": 0.0,
+      "reasoning": 49271.82352941176
+    }
+  },
+  "steps": {
+    "checkpoint": {
+      "mean": 47.88235294117647,
+      "stddev": 31.90588181068887,
+      "min": 10.0,
+      "max": 113.0,
+      "median": 39.0,
+      "count": 17
+    },
+    "problem": {
+      "mean": 271.3333333333333,
+      "stddev": 80.31396723692171,
+      "min": 206.0,
+      "max": 361.0,
+      "median": 247.0,
+      "count": 3
+    }
+  },
+  "checkpoints_solved": 3,
+  "checkpoints_iso_solved": 6,
+  "checkpoints_core_solved": 11,
+  "problem_solved": 0.0,
+  "problem_partial": 2.0,
+  "pct_checkpoints_solved": 17.647058823529413,
+  "pct_checkpoints_iso_solved": 35.294117647058826,
+  "pct_problems_solved": 0.0,
+  "pct_problems_partial": 66.66666666666666,
+  "pct_checkpoints_core_solved": 64.70588235294117,
+  "pass_rates": {
+    "problem": {
+      "core": 0.8409313725490196,
+      "total": 0.8528505600790788,
+      "error": 0.8954541446208113,
+      "functionality": 0.8326034455278144,
+      "regression": 0.9287623685366297
+    },
+    "checkpoint": {
+      "core": 0.8705305651672434,
+      "total": 0.8745933945187342,
+      "error": 0.9218331777155306,
+      "functionality": 0.8646179093196884,
+      "regression": 0.9196809429513202
+    }
+  },
+  "cc": {
+    "high_count": {
+      "mean": 18.941176470588236,
+      "stddev": 13.174172593730953,
+      "min": 4.0,
+      "max": 49.0,
+      "median": 16.0,
+      "count": 17
+    },
+    "high_mean": {
+      "mean": 16.921290620713336,
+      "stddev": 4.102517071943855,
+      "min": 12.363636363636363,
+      "max": 24.666666666666668,
+      "median": 15.225806451612904,
+      "count": 17
+    },
+    "max": {
+      "mean": 38.0,
+      "stddev": 21.106870919205434,
+      "min": 14.0,
+      "max": 87.0,
+      "median": 36.0,
+      "count": 17
+    }
+  },
+  "ratios": {
+    "rubric": {
+      "mean": null,
+      "stddev": null,
+      "min": null,
+      "max": null,
+      "median": null,
+      "count": 0
+    },
+    "lint": {
+      "mean": 0.15004603169280387,
+      "stddev": 0.01119768008875259,
+      "min": 0.12598975314392175,
+      "max": 0.1637848222862632,
+      "median": 0.15164459632635627,
+      "count": 17
+    }
+  },
+  "verbosity": {
+    "mean": 0.41641010031818415,
+    "stddev": 0.04990541076233628,
+    "min": 0.30842911877394635,
+    "max": 0.49820531227566406,
+    "median": 0.4182415776499589,
+    "count": 17
+  },
+  "erosion": {
+    "mean": 0.6890295763625784,
+    "stddev": 0.1525804528608202,
+    "min": 0.41850323517562016,
+    "max": 0.8744078907427538,
+    "median": 0.7004769015566005,
+    "count": 17
+  }
+}
