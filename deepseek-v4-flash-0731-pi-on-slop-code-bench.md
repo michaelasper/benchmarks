@@ -4,10 +4,14 @@
 
 ## The same model scored 1/17 and 5/17 in two runs a day apart
 
-I ran DeepSeek V4 Flash 0731 on a local machine against the same
-three-problem, 17-checkpoint SlopCodeBench subset used in my
-[earlier DeepSeek V4 Flash report](deepseek-v4-flash-on-slop-code-bench.md),
-this time with the `pi` agent instead of OpenCode.
+I ran DeepSeek V4 Flash 0731 against the same three-problem, 17-checkpoint
+SlopCodeBench subset used in my
+[earlier DeepSeek V4 Flash report](deepseek-v4-flash-on-slop-code-bench.md) —
+but where that run used the full model served by the DeepSeek API, this one
+served a quantized copy on my own hardware, under the `pi` agent instead of
+OpenCode. So the two reports are not a quantization A/B; too much differs.
+
+This one is about something else entirely, which is why it is worth writing up.
 
 The first run strictly solved **1 of 17 checkpoints**. The second, the next
 day, strictly solved **5 of 17**. The weights did not change.
@@ -242,14 +246,14 @@ produced new work.
 
 ## Compared with the other reported runs
 
-| Reported run | Harness | Strict | Isolated | Core |
-| --- | --- | ---: | ---: | ---: |
-| DeepSeek V4 Flash 0731 (local, run B) | pi 0.84.0 | 5/17 (29.4%) | 6/17 | 10/17 |
-| Opus 5 | Claude Code | 4/17 (23.5%) | — | — |
-| DeepSeek V4 Flash (local, earlier quant) | OpenCode 1.18.10 | 3/17 (17.6%) | 6/17 | 11/17 |
-| Opus 4.8 | Claude Code | 1/17 (5.9%) | — | — |
-| Sonnet 5 | Claude Code | 1/17 (5.9%) | — | — |
-| DeepSeek V4 Flash 0731 (local, run A) | pi 0.84.0 | 1/17 (5.9%) | 1/17 | 2/17 |
+| Reported run | Serving | Harness | Strict | Isolated | Core |
+| --- | --- | --- | ---: | ---: | ---: |
+| DeepSeek V4 Flash 0731 (run B) | local quant | pi 0.84.0 | 5/17 (29.4%) | 6/17 | 10/17 |
+| Opus 5 | hosted API | Claude Code | 4/17 (23.5%) | — | — |
+| DeepSeek V4 Flash | hosted API | OpenCode 1.18.10 | 3/17 (17.6%) | 6/17 | 11/17 |
+| Opus 4.8 | hosted API | Claude Code | 1/17 (5.9%) | — | — |
+| Sonnet 5 | hosted API | Claude Code | 1/17 (5.9%) | — | — |
+| DeepSeek V4 Flash 0731 (run A) | local quant | pi 0.84.0 | 1/17 (5.9%) | 1/17 | 2/17 |
 
 The Anthropic rows come from
 [HumanLayer's Opus 5 report](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md).
@@ -257,12 +261,23 @@ The Anthropic rows come from
 Resist reading this as a ranking. Every row is a single trajectory, and the
 rows differ in weights, quantization, harness and reasoning effort all at once.
 
-The comparison with my own earlier OpenCode run is the most controlled one
-here, and it is not a clean win: strict goes up (5 vs 3), isolated ties (6),
-and **core goes down** (10 vs 11). Strict correctness rewards not breaking
-inherited behavior; core rewards implementing the current contract. The
-OpenCode run implemented more and broke more. Seventeen checkpoints is far too
-small a sample to call either difference real.
+The most tempting comparison — my own earlier DeepSeek V4 Flash report — is
+also one of the least controlled. **That run used the full model served by the
+DeepSeek API**; this one used a roughly 2-bit local quantization on consumer
+hardware. It also used a different harness (OpenCode rather than pi) and a
+lower reasoning effort. Four variables move at once.
+
+With that caveat, the local quant scored higher on strict (5 vs 3), tied on
+isolated (6), and lower on core (10 vs 11). Strict rewards not breaking
+inherited behavior; core rewards implementing the current contract — the API
+run implemented more of each checkpoint and broke more of what came before.
+
+I would not conclude from this that a 2-bit local quant matches the hosted
+model. Seventeen checkpoints is far too small a sample, and three of this run's
+checkpoints were decided by a token cap rather than by the weights. The
+defensible reading is narrower: on this subset the quantized local model was
+not obviously outclassed, and the serving configuration mattered more than the
+gap between the two.
 
 ## What I take away
 
