@@ -3,15 +3,15 @@ from __future__ import annotations
 import csv
 import html
 import json
+import sys
 from collections import defaultdict
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_DIR = ROOT / "data" / "deepseek-v4-flash-opencode-high-2026-07-31"
-INPUT_PATH = DATA_DIR / "checkpoint_results.jsonl"
-CSV_PATH = DATA_DIR / "checkpoints.csv"
+DATA_ROOT = ROOT / "data"
 IMAGE_DIR = ROOT / "images"
 
 BACKGROUND = "#0b1020"
@@ -35,6 +35,21 @@ DISPLAY_NAMES = {
     "database_migration": "Database migration",
     "dynamic_config_service_api": "Dynamic config API",
 }
+
+TERMINATION_COLORS = {
+    "clean": CORE,
+    "output_cap": STRICT,
+    "context_overflow": EROSION,
+    "retry": VERBOSITY,
+    "length_no_content": CLONED,
+}
+TERMINATION_ORDER = [
+    "clean",
+    "output_cap",
+    "retry",
+    "context_overflow",
+    "length_no_content",
+]
 
 CSV_FIELDS = [
     "problem",
@@ -62,9 +77,63 @@ CSV_FIELDS = [
 ]
 
 
-def load_records() -> list[dict[str, Any]]:
+@dataclass(frozen=True)
+class RunSpec:
+    """Everything that varies between published runs."""
+
+    data_dir: str
+    prefix: str
+    scorecard_title: str
+    agent_label: str
+    thinking: str
+    termination_runs: tuple[tuple[str, str], ...] = ()
+
+    @property
+    def data_path(self) -> Path:
+        return DATA_ROOT / self.data_dir
+
+    @property
+    def input_path(self) -> Path:
+        return self.data_path / "checkpoint_results.jsonl"
+
+    @property
+    def csv_path(self) -> Path:
+        return self.data_path / "checkpoints.csv"
+
+    def image_path(self, name: str) -> Path:
+        return IMAGE_DIR / f"{self.prefix}{name}.svg"
+
+
+OPENCODE_RUN = "deepseek-v4-flash-opencode-high-2026-07-31"
+PI_0807_RUN = "deepseek-v4-flash-0731-pi-xhigh-2026-08-07"
+PI_0808_RUN = "deepseek-v4-flash-0731-pi-xhigh-2026-08-08"
+
+RUNS: dict[str, RunSpec] = {
+    OPENCODE_RUN: RunSpec(
+        data_dir=OPENCODE_RUN,
+        prefix="deepseek-v4-flash-",
+        scorecard_title="DeepSeek V4 Flash on SlopCodeBench",
+        agent_label="OpenCode 1.18.10",
+        thinking="high",
+    ),
+    PI_0808_RUN: RunSpec(
+        data_dir=PI_0808_RUN,
+        prefix="deepseek-v4-flash-0731-",
+        scorecard_title="DeepSeek V4 Flash 0731 on SlopCodeBench",
+        agent_label="pi 0.84.0",
+        thinking="xhigh",
+        termination_runs=(
+            ("2026-08-07", PI_0807_RUN),
+            ("2026-08-08", PI_0808_RUN),
+        ),
+    ),
+}
+DEFAULT_RUN = OPENCODE_RUN
+
+
+def load_records(path: Path) -> list[dict[str, Any]]:
     return [
-        json.loads(line) for line in INPUT_PATH.read_text().splitlines() if line.strip()
+        json.loads(line) for line in path.read_text().splitlines() if line.strip()
     ]
 
 
@@ -124,8 +193,8 @@ def write_svg(path: Path, elements: list[str]) -> None:
     path.write_text("\n".join(elements) + "\n")
 
 
-def write_csv(records: list[dict[str, Any]]) -> None:
-    with CSV_PATH.open("w", newline="") as file:
+def write_csv(path: Path, records: list[dict[str, Any]]) -> None:
+    with path.open("w", newline="") as file:
         writer = csv.DictWriter(
             file,
             fieldnames=CSV_FIELDS,
@@ -150,36 +219,42 @@ def write_csv(records: list[dict[str, Any]]) -> None:
                     "steps": item["steps"],
                     "input_tokens": item["input"],
                     "output_tokens": item["output"],
-                    "reasoning_tokens": item["reasoning"],
+                    "reasoning_tokens": item.get("reasoning", 0),
                     "loc": item["loc"],
                     "functions": item["functions"],
                     "cc_max": item["cc_max"],
-                    "verbosity": item["verbosity"],
-                    "erosion": item["erosion"],
-                    "cloned_pct": item["cloned_pct"],
+                    # Quality metrics are absent, not zero, when a checkpoint
+                    # snapshot holds no source file for the analyzer to read.
+                    # That happens when the agent loop was truncated before it
+                    # wrote anything, so an empty cell here is a real signal
+                    # and must not be flattened into 0.
+                    "verbosity": item.get("verbosity"),
+                    "erosion": item.get("erosion"),
+                    "cloned_pct": item.get("cloned_pct"),
                 }
             )
 
 
-def render_scorecard(groups: dict[str, list[dict[str, Any]]]) -> None:
+def render_scorecard(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
     width = 1440
     height = 820
-    title = "DeepSeek V4 Flash on SlopCodeBench"
+    title = spec.scorecard_title
     svg = svg_start(width, height, title)
+    totals = [item for values in groups.values() for item in values]
+    subtitle = (
+        f"{len(groups)} problems · {len(totals)} checkpoints · "
+        f"{spec.agent_label} · {spec.thinking}"
+    )
     svg.extend(
         [
             svg_text(90, 92, title, size=42, weight=750),
-            svg_text(
-                90,
-                132,
-                "3 problems · 17 checkpoints · OpenCode 1.18.10 · high",
-                size=20,
-                fill=MUTED,
-            ),
+            svg_text(90, 132, subtitle, size=20, fill=MUTED),
         ]
     )
 
-    totals = [item for values in groups.values() for item in values]
     rows: list[tuple[str, list[dict[str, Any]]]] = [
         (DISPLAY_NAMES[name], groups[name]) for name in DISPLAY_NAMES
     ]
@@ -234,6 +309,13 @@ def render_scorecard(groups: dict[str, list[dict[str, Any]]]) -> None:
             )
             x += segment
 
+    total_cost = sum(float(item["cost"]) for item in totals)
+    mean_pass = sum(float(item["strict_pass_rate"]) for item in totals)
+    mean_pass /= len(totals)
+    problems_solved = sum(
+        all(item["strict_pass_rate"] == 1 for item in values)
+        for values in groups.values()
+    )
     svg.extend(
         [
             (
@@ -241,14 +323,20 @@ def render_scorecard(groups: dict[str, list[dict[str, Any]]]) -> None:
                 f'fill="{PANEL}" filter="url(#shadow)"/>'
             ),
             svg_text(125, 746, "Total cost", size=16, fill=MUTED),
-            svg_text(245, 748, "$0.6785", size=28, weight=750),
+            svg_text(245, 748, f"${total_cost:.4f}", size=28, weight=750),
             svg_text(520, 746, "Mean test pass", size=16, fill=MUTED),
-            svg_text(690, 748, "87.5%", size=28, weight=750),
+            svg_text(690, 748, f"{mean_pass * 100:.1f}%", size=28, weight=750),
             svg_text(920, 746, "Problems solved", size=16, fill=MUTED),
-            svg_text(1085, 748, "0 / 3", size=28, weight=750),
+            svg_text(
+                1085,
+                748,
+                f"{problems_solved} / {len(groups)}",
+                size=28,
+                weight=750,
+            ),
         ]
     )
-    write_svg(IMAGE_DIR / "deepseek-v4-flash-scorecard.svg", svg)
+    write_svg(spec.image_path("scorecard"), svg)
 
 
 def points_for(
@@ -282,6 +370,7 @@ def add_legend(
     *,
     x: float,
     y: float,
+    step: float = 205,
 ) -> None:
     cursor = x
     for label, color in items:
@@ -291,7 +380,7 @@ def add_legend(
             'stroke-linecap="round"/>'
         )
         svg.append(svg_text(cursor + 45, y + 6, label, size=16, fill=MUTED))
-        cursor += 205
+        cursor += step
 
 
 def add_rate_panel(
@@ -374,7 +463,10 @@ def add_rate_panel(
             )
 
 
-def render_correctness(groups: dict[str, list[dict[str, Any]]]) -> None:
+def render_correctness(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
     width = 1540
     height = 650
     title = "Correctness by checkpoint"
@@ -416,10 +508,13 @@ def render_correctness(groups: dict[str, list[dict[str, Any]]]) -> None:
                 ("core_pass_rate", CORE),
             ],
         )
-    write_svg(IMAGE_DIR / "deepseek-v4-flash-correctness.svg", svg)
+    write_svg(spec.image_path("correctness"), svg)
 
 
-def render_quality(groups: dict[str, list[dict[str, Any]]]) -> None:
+def render_quality(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
     width = 1540
     height = 690
     title = "Quality signals by checkpoint"
@@ -474,10 +569,20 @@ def render_quality(groups: dict[str, list[dict[str, Any]]]) -> None:
                 anchor="middle",
             )
         )
-    write_svg(IMAGE_DIR / "deepseek-v4-flash-quality.svg", svg)
+    write_svg(spec.image_path("quality"), svg)
 
 
-def render_code_growth(groups: dict[str, list[dict[str, Any]]]) -> None:
+def growth_maximum(groups: dict[str, list[dict[str, Any]]]) -> int:
+    peak = max(
+        int(record["loc"]) for values in groups.values() for record in values
+    )
+    return ((peak // 500) + 1) * 500
+
+
+def render_code_growth(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
     width = 1400
     height = 720
     title = "Source volume carried forward"
@@ -499,8 +604,8 @@ def render_code_growth(groups: dict[str, list[dict[str, Any]]]) -> None:
     plot_y = 165
     plot_width = 1160
     plot_height = 440
-    maximum = 4500
-    for value in (0, 1000, 2000, 3000, 4000):
+    maximum = growth_maximum(groups)
+    for value in range(0, maximum, 1000):
         grid_y = plot_y + plot_height * (1 - value / maximum)
         svg.append(
             f'<line x1="{plot_x}" y1="{grid_y:.1f}" '
@@ -576,18 +681,203 @@ def render_code_growth(groups: dict[str, list[dict[str, Any]]]) -> None:
         x=310,
         y=680,
     )
-    write_svg(IMAGE_DIR / "deepseek-v4-flash-code-growth.svg", svg)
+    write_svg(spec.image_path("code-growth"), svg)
+
+
+def load_trajectory(data_dir: str) -> dict[tuple[str, int], dict[str, Any]]:
+    path = DATA_ROOT / data_dir / "trajectory.jsonl"
+    entries: dict[tuple[str, int], dict[str, Any]] = {}
+    for line in path.read_text().splitlines():
+        if not line.strip():
+            continue
+        item = json.loads(line)
+        entries[(item["problem"], int(item["checkpoint"]))] = item
+    return entries
+
+
+def checkpoint_slots(
+    groups: dict[str, list[dict[str, Any]]],
+) -> list[tuple[str, int]]:
+    slots: list[tuple[str, int]] = []
+    for problem in DISPLAY_NAMES:
+        for record in groups.get(problem, []):
+            slots.append((problem, int(record["idx"])))
+    return slots
+
+
+def termination_counts(
+    entries: dict[tuple[str, int], dict[str, Any]],
+    slots: list[tuple[str, int]],
+) -> str:
+    counts: dict[str, int] = defaultdict(int)
+    for slot in slots:
+        entry = entries.get(slot)
+        if entry is not None:
+            counts[str(entry["termination"])] += 1
+    parts = [
+        f"{name.replace('_', ' ')} {counts[name]}"
+        for name in TERMINATION_ORDER
+        if counts.get(name)
+    ]
+    return "  ·  ".join(parts)
+
+
+def render_termination(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
+    width = 1540
+    height = 620
+    title = "Why the agent loop stopped"
+    svg = svg_start(width, height, title)
+    svg.extend(
+        [
+            svg_text(70, 72, title, size=36, weight=750),
+            svg_text(
+                70,
+                108,
+                "Termination reason per checkpoint, both pi runs",
+                size=18,
+                fill=MUTED,
+            ),
+        ]
+    )
+
+    slots = checkpoint_slots(groups)
+    cell_width = 66.0
+    cell_gap = 10.0
+    cell_height = 74.0
+    plot_x = 70.0
+    matrix_width = len(slots) * cell_width + (len(slots) - 1) * cell_gap
+    row_top = 250.0
+    row_gap = 150.0
+
+    svg.append(
+        f'<rect x="50" y="170" width="{matrix_width + 40:.1f}" '
+        f'height="{row_top + row_gap + cell_height + 46 - 170:.1f}" '
+        f'rx="20" fill="{PANEL}"/>'
+    )
+
+    def slot_x(index: int) -> float:
+        return plot_x + index * (cell_width + cell_gap)
+
+    for problem in DISPLAY_NAMES:
+        indexes = [
+            index
+            for index, (name, _) in enumerate(slots)
+            if name == problem
+        ]
+        if not indexes:
+            continue
+        start = slot_x(indexes[0])
+        end = slot_x(indexes[-1]) + cell_width
+        svg.append(
+            f'<line x1="{start:.1f}" y1="212" x2="{end:.1f}" y2="212" '
+            f'stroke="{PROBLEM_COLORS[problem]}" stroke-width="3" '
+            'stroke-linecap="round"/>'
+        )
+        svg.append(
+            svg_text(
+                (start + end) / 2,
+                202,
+                DISPLAY_NAMES[problem],
+                size=15,
+                fill=PROBLEM_COLORS[problem],
+                weight=650,
+                anchor="middle",
+            )
+        )
+
+    for row, (label, data_dir) in enumerate(spec.termination_runs):
+        entries = load_trajectory(data_dir)
+        y = row_top + row * row_gap
+        svg.append(svg_text(plot_x, y - 16, label, size=19, weight=700))
+        svg.append(
+            svg_text(
+                plot_x + matrix_width,
+                y - 16,
+                termination_counts(entries, slots),
+                size=15,
+                fill=MUTED,
+                anchor="end",
+            )
+        )
+        for index, slot in enumerate(slots):
+            entry = entries.get(slot)
+            termination = str(entry["termination"]) if entry else "missing"
+            color = TERMINATION_COLORS.get(termination, GRID)
+            x = slot_x(index)
+            svg.append(
+                f'<rect x="{x:.1f}" y="{y:.1f}" '
+                f'width="{cell_width:.1f}" height="{cell_height:.1f}" '
+                f'rx="12" fill="{color}"/>'
+            )
+            svg.append(
+                svg_text(
+                    x + cell_width / 2,
+                    y + 34,
+                    f"C{slot[1]}",
+                    size=16,
+                    fill=BACKGROUND,
+                    weight=750,
+                    anchor="middle",
+                )
+            )
+            changed = len(entry["files_changed"]) if entry else 0
+            plural = "" if changed == 1 else "s"
+            note = (
+                "no edits" if changed == 0 else f"{changed} file{plural}"
+            )
+            svg.append(
+                svg_text(
+                    x + cell_width / 2,
+                    y + 56,
+                    note,
+                    size=11,
+                    fill=BACKGROUND,
+                    weight=600,
+                    anchor="middle",
+                )
+            )
+
+    add_legend(
+        svg,
+        [
+            ("Clean stop", CORE),
+            ("Output cap", STRICT),
+            ("Retry", VERBOSITY),
+            ("Context overflow", EROSION),
+            ("Length, no content", CLONED),
+        ],
+        x=70,
+        y=568,
+        step=280,
+    )
+    write_svg(spec.image_path("termination"), svg)
+
+
+def resolve_spec(argument: str | None) -> RunSpec:
+    if argument is None:
+        return RUNS[DEFAULT_RUN]
+    name = Path(argument.rstrip("/")).name
+    if name not in RUNS:
+        known = ", ".join(sorted(RUNS))
+        raise SystemExit(f"unknown run {name!r}; known runs: {known}")
+    return RUNS[name]
 
 
 def main() -> None:
+    spec = resolve_spec(sys.argv[1] if len(sys.argv) > 1 else None)
     IMAGE_DIR.mkdir(exist_ok=True)
-    records = load_records()
+    records = load_records(spec.input_path)
     groups = group_records(records)
-    write_csv(records)
-    render_scorecard(groups)
-    render_correctness(groups)
-    render_quality(groups)
-    render_code_growth(groups)
+    write_csv(spec.csv_path, records)
+    render_scorecard(spec, groups)
+    render_correctness(spec, groups)
+    render_quality(spec, groups)
+    render_code_growth(spec, groups)
+    if spec.termination_runs:
+        render_termination(spec, groups)
 
 
 if __name__ == "__main__":
