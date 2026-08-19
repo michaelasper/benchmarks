@@ -14,11 +14,12 @@ OpenCode. So the two reports are not a quantization A/B; too much differs.
 This one is about something else entirely, which is why it is worth writing up.
 
 The first run strictly solved **1 of 17 checkpoints**. The second, the next
-day, strictly solved **5 of 17**. The weights did not change.
+day, strictly solved **5 of 17**. The base model stayed the same, but the served
+quant did not.
 
-That gap is the report. Almost none of it is about how well the model writes
-code, and most of it is about a single number in a serving config: the cap on
-how many tokens the model is allowed to emit in one response.
+That gap is the report. The output-token cap clearly explains why many agent
+loops did no useful work; the correctness swing remains confounded by the
+simultaneous quantization change.
 
 | Metric | Run A (2026-08-07) | Run B (2026-08-08) |
 | --- | ---: | ---: |
@@ -114,7 +115,7 @@ and the way I found out is worth repeating.
 | Max output tokens | 32,768 | **49,152** |
 | Compaction reserve tokens | 16,384 (harness default) | **49,152** |
 | Quant | vendor `UD-Q2_K_XL` | **a larger community q2q4 imatrix quant (91 GB)** |
-| Weights, server, drafter | unchanged | unchanged |
+| Base model, server, drafter | unchanged | unchanged |
 | Harness, prompt, seed, problems, effort | unchanged | unchanged |
 
 I nearly published this as a controlled experiment, because **the two runs'
@@ -283,8 +284,8 @@ gap between the two.
 
 The headline number of a coding-agent benchmark can be dominated by a serving
 parameter that has nothing to do with the model. A 4× swing in strict
-correctness came from an output-token cap and a quantization change, over a
-single day, on identical weights and an identical prompt.
+correctness accompanied an output-token cap and quantization change, over a
+single day, with the same base model and prompt. The two effects are confounded.
 
 Three practical conclusions:
 

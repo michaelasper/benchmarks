@@ -1,0 +1,42 @@
+{
+  "dataset": "qwen3.8-27b-pi-xhigh-2026-08-19",
+  "selection": "one complete cumulative trajectory per problem",
+  "problem_catalog": {
+    "version": "v1.0",
+    "commit": "4d38d300059667d57e43c31969bc455f5c338b52"
+  },
+  "shared_configuration": {
+    "model": "openrouter/qwen3.8-27b",
+    "agent": "pi 0.84.2",
+    "thinking": "xhigh",
+    "prompt": "just-solve",
+    "pass_policy": "all-cases",
+    "seed": 42
+  },
+  "sources": [
+    {
+      "id": "20260819T0039",
+      "problems": [
+        "etl_pipeline",
+        "xjq"
+      ],
+      "checkpoints": 10
+    },
+    {
+      "id": "20260819T0944",
+      "problems": [
+        "circuit_eval",
+        "code_search",
+        "dag_execution",
+        "database_migration",
+        "dynamic_config_service_api",
+        "file_backup"
+      ],
+      "checkpoints": 29
+    }
+  ],
+  "totals": {
+    "problems": 8,
+    "checkpoints": 39
+  }
+}

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-label="Qwen3.8-27B on SlopCodeBench">
+<title>Qwen3.8-27B on SlopCodeBench</title>
+<defs><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.24"/></filter></defs>
+<rect width="1600" height="960" fill="#0b1020"/>
+<text x="80.0" y="78.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="750" text-anchor="start">Qwen3.8-27B on SlopCodeBench</text>
+<text x="80.0" y="118.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" text-anchor="start">Eight cumulative coding trajectories · 39 checkpoints</text>
+<rect x="80" y="155" width="226" height="154" rx="18" fill="#121a2c" filter="url(#shadow)"/>
+<text x="102.0" y="190.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" text-anchor="start">Strict</text>
+<text x="102.0" y="248.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="750" text-anchor="start">5/39</text>
+<text x="102.0" y="282.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">12.8%</text>
+<rect x="322" y="155" width="226" height="154" rx="18" fill="#121a2c" filter="url(#shadow)"/>
+<text x="344.0" y="190.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" text-anchor="start">Isolated</text>
+<text x="344.0" y="248.0" fill="#4ecdc4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="750" text-anchor="start">8/39</text>
+<text x="344.0" y="282.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">20.5%</text>
+<rect x="564" y="155" width="226" height="154" rx="18" fill="#121a2c" filter="url(#shadow)"/>
+<text x="586.0" y="190.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" text-anchor="start">Core</text>
+<text x="586.0" y="248.0" fill="#a3e635" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="750" text-anchor="start">17/39</text>
+<text x="586.0" y="282.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">43.6%</text>
+<rect x="806" y="155" width="226" height="154" rx="18" fill="#121a2c" filter="url(#shadow)"/>
+<text x="828.0" y="190.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" text-anchor="start">Full problems</text>
+<text x="828.0" y="248.0" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="750" text-anchor="start">0/8</text>
+<text x="828.0" y="282.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">end to end</text>
+<rect x="1048" y="155" width="226" height="154" rx="18" fill="#121a2c" filter="url(#shadow)"/>
+<text x="1070.0" y="190.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" text-anchor="start">Partial problems</text>
+<text x="1070.0" y="248.0" fill="#f59e0b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="750" text-anchor="start">4/8</text>
+<text x="1070.0" y="282.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">50.0%</text>
+<rect x="1290" y="155" width="226" height="154" rx="18" fill="#121a2c" filter="url(#shadow)"/>
+<text x="1312.0" y="190.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" text-anchor="start">API cost</text>
+<text x="1312.0" y="248.0" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="750" text-anchor="start">$30.85</text>
+<text x="1312.0" y="282.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start">billed</text>
+<text x="80.0" y="374.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="750" text-anchor="start">Exact checkpoint solves</text>
+<text x="80.0" y="406.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" text-anchor="start">Each threshold requires a perfect 100%; partial credit is excluded.</text>
+<rect x="80" y="435" width="1440" height="238" rx="22" fill="#121a2c"/>
+<text x="115.0" y="499.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="start">Core contract</text>
+<rect x="390" y="474" width="1010" height="35" rx="10" fill="#0b1020"/>
+<rect x="390" y="474" width="440.3" height="35" rx="10" fill="#a3e635"/>
+<text x="1465.0" y="499.0" fill="#a3e635" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="750" text-anchor="end">17/39  43.6%</text>
+<text x="115.0" y="561.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="start">Current checkpoint</text>
+<rect x="390" y="536" width="1010" height="35" rx="10" fill="#0b1020"/>
+<rect x="390" y="536" width="207.2" height="35" rx="10" fill="#4ecdc4"/>
+<text x="1465.0" y="561.0" fill="#4ecdc4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="750" text-anchor="end">8/39  20.5%</text>
+<text x="115.0" y="623.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="start">Current + inherited tests</text>
+<rect x="390" y="598" width="1010" height="35" rx="10" fill="#0b1020"/>
+<rect x="390" y="598" width="129.5" height="35" rx="10" fill="#ff6b6b"/>
+<text x="1465.0" y="623.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="750" text-anchor="end">5/39  12.8%</text>
+<text x="390.0" y="645.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Core → isolated: −23.1 pp</text>
+<text x="760.0" y="645.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Isolated → strict: −7.7 pp</text>
+<rect x="80" y="710" width="710" height="172" rx="20" fill="#121a2c"/>
+<text x="108.0" y="749.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="750" text-anchor="start">Opus 5 subset</text>
+<text x="762.0" y="749.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="end">17 checkpoints</text>
+<text x="108.0" y="792.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Strict</text>
+<text x="108.0" y="832.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="750" text-anchor="start">3/17</text>
+<text x="293.0" y="792.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Isolated</text>
+<text x="293.0" y="832.0" fill="#4ecdc4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="750" text-anchor="start">4/17</text>
+<text x="478.0" y="792.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Core</text>
+<text x="478.0" y="832.0" fill="#a3e635" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="750" text-anchor="start">5/17</text>
+<text x="670.0" y="792.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Cost</text>
+<text x="670.0" y="832.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="750" text-anchor="start">$21.27</text>
+<rect x="810" y="710" width="710" height="172" rx="20" fill="#121a2c"/>
+<text x="838.0" y="749.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="750" text-anchor="start">Fable, Sol and Kimi subset</text>
+<text x="1492.0" y="749.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="end">30 checkpoints</text>
+<text x="838.0" y="792.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Strict</text>
+<text x="838.0" y="832.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="750" text-anchor="start">4/30</text>
+<text x="1023.0" y="792.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Isolated</text>
+<text x="1023.0" y="832.0" fill="#4ecdc4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="750" text-anchor="start">7/30</text>
+<text x="1208.0" y="792.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Core</text>
+<text x="1208.0" y="832.0" fill="#a3e635" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="750" text-anchor="start">16/30</text>
+<text x="1400.0" y="792.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Cost</text>
+<text x="1400.0" y="832.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="750" text-anchor="start">$23.47</text>
+<text x="800.0" y="922.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="middle">circuit_eval appears in both subsets; the union counts its 8 checkpoints once.</text>
+</svg>

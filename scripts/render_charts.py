@@ -9,7 +9,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = ROOT / "data"
 IMAGE_DIR = ROOT / "images"
@@ -34,6 +33,39 @@ DISPLAY_NAMES = {
     "circuit_eval": "Circuit evaluator",
     "database_migration": "Database migration",
     "dynamic_config_service_api": "Dynamic config API",
+}
+QWEN_DISPLAY_NAMES = {
+    "circuit_eval": "Circuit evaluator",
+    "database_migration": "Database migration",
+    "dynamic_config_service_api": "Dynamic config API",
+    "xjq": "xjq",
+    "file_backup": "File backup",
+    "dag_execution": "DAG execution",
+    "code_search": "Code search",
+    "etl_pipeline": "ETL pipeline",
+}
+QWEN_PROBLEM_COLORS = {
+    "circuit_eval": "#38bdf8",
+    "database_migration": "#f59e0b",
+    "dynamic_config_service_api": "#a78bfa",
+    "xjq": "#2dd4bf",
+    "file_backup": "#fb7185",
+    "dag_execution": "#f97316",
+    "code_search": "#60a5fa",
+    "etl_pipeline": "#a3e635",
+}
+QWEN_OPUS_SUBSET = {
+    "circuit_eval",
+    "database_migration",
+    "dynamic_config_service_api",
+}
+QWEN_SOL_FABLE_KIMI_SUBSET = {
+    "xjq",
+    "file_backup",
+    "dag_execution",
+    "circuit_eval",
+    "code_search",
+    "etl_pipeline",
 }
 
 TERMINATION_COLORS = {
@@ -86,6 +118,7 @@ class RunSpec:
     scorecard_title: str
     agent_label: str
     thinking: str
+    kind: str = "legacy"
     termination_runs: tuple[tuple[str, str], ...] = ()
 
     @property
@@ -107,6 +140,7 @@ class RunSpec:
 OPENCODE_RUN = "deepseek-v4-flash-opencode-high-2026-07-31"
 PI_0807_RUN = "deepseek-v4-flash-0731-pi-xhigh-2026-08-07"
 PI_0808_RUN = "deepseek-v4-flash-0731-pi-xhigh-2026-08-08"
+QWEN_RUN = "qwen3.8-27b-pi-xhigh-2026-08-19"
 
 RUNS: dict[str, RunSpec] = {
     OPENCODE_RUN: RunSpec(
@@ -126,6 +160,14 @@ RUNS: dict[str, RunSpec] = {
             ("2026-08-07", PI_0807_RUN),
             ("2026-08-08", PI_0808_RUN),
         ),
+    ),
+    QWEN_RUN: RunSpec(
+        data_dir=QWEN_RUN,
+        prefix="qwen3.8-27b-pi-",
+        scorecard_title="Qwen3.8-27B on SlopCodeBench",
+        agent_label="pi 0.84.2",
+        thinking="xhigh",
+        kind="qwen",
     ),
 }
 DEFAULT_RUN = OPENCODE_RUN
@@ -684,6 +726,856 @@ def render_code_growth(
     write_svg(spec.image_path("code-growth"), svg)
 
 
+def subset_records(
+    groups: dict[str, list[dict[str, Any]]],
+    names: set[str],
+) -> list[dict[str, Any]]:
+    return [
+        record
+        for problem, records in groups.items()
+        if problem in names
+        for record in records
+    ]
+
+
+def exact_summary(records: list[dict[str, Any]]) -> tuple[int, int, int]:
+    return tuple(
+        sum(record[field] == 1 for record in records)
+        for field in (
+            "strict_pass_rate",
+            "isolated_pass_rate",
+            "core_pass_rate",
+        )
+    )
+
+
+def render_qwen_scorecard(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
+    width = 1600
+    height = 960
+    title = spec.scorecard_title
+    all_records = [record for records in groups.values() for record in records]
+    strict, isolated, core = exact_summary(all_records)
+    count = len(all_records)
+    total_cost = sum(record["cost"] for record in all_records)
+    full_problems = sum(
+        all(record["strict_pass_rate"] == 1 for record in records)
+        for records in groups.values()
+    )
+    partial_problems = sum(
+        any(record["strict_pass_rate"] == 1 for record in records)
+        for records in groups.values()
+    )
+
+    svg = svg_start(width, height, title)
+    svg.extend(
+        [
+            svg_text(80, 78, title, size=42, weight=750),
+            svg_text(
+                80,
+                118,
+                "Eight cumulative coding trajectories · 39 checkpoints",
+                size=19,
+                fill=MUTED,
+            ),
+        ]
+    )
+
+    cards = [
+        ("Strict", f"{strict}/{count}", f"{strict / count:.1%}", STRICT),
+        (
+            "Isolated",
+            f"{isolated}/{count}",
+            f"{isolated / count:.1%}",
+            ISOLATED,
+        ),
+        ("Core", f"{core}/{count}", f"{core / count:.1%}", CORE),
+        (
+            "Full problems",
+            f"{full_problems}/{len(groups)}",
+            "end to end",
+            "#f8fafc",
+        ),
+        (
+            "Partial problems",
+            f"{partial_problems}/{len(groups)}",
+            f"{partial_problems / len(groups):.1%}",
+            VERBOSITY,
+        ),
+        ("API cost", f"${total_cost:.2f}", "billed", "#f8fafc"),
+    ]
+    card_width = 226
+    card_gap = 16
+    for index, (label, value, note, color) in enumerate(cards):
+        x = 80 + index * (card_width + card_gap)
+        svg.extend(
+            [
+                (
+                    f'<rect x="{x}" y="155" width="{card_width}" '
+                    f'height="154" rx="18" fill="{PANEL}" '
+                    'filter="url(#shadow)"/>'
+                ),
+                svg_text(x + 22, 190, label, size=15, fill=MUTED, weight=650),
+                svg_text(x + 22, 248, value, size=34, fill=color, weight=750),
+                svg_text(x + 22, 282, note, size=15, fill=MUTED),
+            ]
+        )
+
+    svg.extend(
+        [
+            svg_text(80, 374, "Exact checkpoint solves", size=26, weight=750),
+            svg_text(
+                80,
+                406,
+                "Each threshold requires a perfect 100%; partial credit is excluded.",
+                size=16,
+                fill=MUTED,
+            ),
+            (
+                '<rect x="80" y="435" width="1440" height="238" '
+                f'rx="22" fill="{PANEL}"/>'
+            ),
+        ]
+    )
+    funnel = [
+        ("Core contract", core, CORE),
+        ("Current checkpoint", isolated, ISOLATED),
+        ("Current + inherited tests", strict, STRICT),
+    ]
+    track_x = 390
+    track_width = 1010
+    for index, (label, solved, color) in enumerate(funnel):
+        y = 474 + index * 62
+        svg.extend(
+            [
+                svg_text(115, y + 25, label, size=17, weight=650),
+                (
+                    f'<rect x="{track_x}" y="{y}" width="{track_width}" '
+                    f'height="35" rx="10" fill="{BACKGROUND}"/>'
+                ),
+                (
+                    f'<rect x="{track_x}" y="{y}" '
+                    f'width="{track_width * solved / count:.1f}" '
+                    f'height="35" rx="10" fill="{color}"/>'
+                ),
+                svg_text(
+                    1465,
+                    y + 25,
+                    f"{solved}/{count}  {solved / count:.1%}",
+                    size=17,
+                    fill=color,
+                    weight=750,
+                    anchor="end",
+                ),
+            ]
+        )
+    svg.extend(
+        [
+            svg_text(
+                390,
+                645,
+                f"Core → isolated: −{(core - isolated) * 100 / count:.1f} pp",
+                size=14,
+                fill=MUTED,
+            ),
+            svg_text(
+                760,
+                645,
+                f"Isolated → strict: −{(isolated - strict) * 100 / count:.1f} pp",
+                size=14,
+                fill=MUTED,
+            ),
+        ]
+    )
+
+    subset_specs = [
+        ("Opus 5 subset", QWEN_OPUS_SUBSET, 80),
+        (
+            "Fable, Sol and Kimi subset",
+            QWEN_SOL_FABLE_KIMI_SUBSET,
+            810,
+        ),
+    ]
+    for label, names, x in subset_specs:
+        records = subset_records(groups, names)
+        subset_strict, subset_isolated, subset_core = exact_summary(records)
+        subset_cost = sum(record["cost"] for record in records)
+        svg.extend(
+            [
+                (
+                    f'<rect x="{x}" y="710" width="710" height="172" '
+                    f'rx="20" fill="{PANEL}"/>'
+                ),
+                svg_text(x + 28, 749, label, size=20, weight=750),
+                svg_text(
+                    x + 682,
+                    749,
+                    f"{len(records)} checkpoints",
+                    size=15,
+                    fill=MUTED,
+                    anchor="end",
+                ),
+            ]
+        )
+        values = [
+            ("Strict", subset_strict, STRICT),
+            ("Isolated", subset_isolated, ISOLATED),
+            ("Core", subset_core, CORE),
+        ]
+        for index, (metric, solved, color) in enumerate(values):
+            metric_x = x + 28 + index * 185
+            svg.extend(
+                [
+                    svg_text(metric_x, 792, metric, size=14, fill=MUTED),
+                    svg_text(
+                        metric_x,
+                        832,
+                        f"{solved}/{len(records)}",
+                        size=27,
+                        fill=color,
+                        weight=750,
+                    ),
+                ]
+            )
+        svg.extend(
+            [
+                svg_text(x + 590, 792, "Cost", size=14, fill=MUTED),
+                svg_text(x + 590, 832, f"${subset_cost:.2f}", size=27, weight=750),
+            ]
+        )
+    svg.append(
+        svg_text(
+            800,
+            922,
+            (
+                "circuit_eval appears in both subsets; the union counts its "
+                "8 checkpoints once."
+            ),
+            size=15,
+            fill=MUTED,
+            anchor="middle",
+        )
+    )
+    write_svg(spec.image_path("scorecard"), svg)
+
+
+def add_qwen_rate_panel(
+    svg: list[str],
+    records: list[dict[str, Any]],
+    *,
+    x: float,
+    y: float,
+    width: float,
+    height: float,
+) -> None:
+    problem = records[0]["problem"]
+    color = QWEN_PROBLEM_COLORS[problem]
+    strict, isolated, core = exact_summary(records)
+    svg.extend(
+        [
+            (
+                f'<rect x="{x}" y="{y}" width="{width}" height="{height}" '
+                f'rx="18" fill="{PANEL}"/>'
+            ),
+            svg_text(
+                x + 24,
+                y + 35,
+                QWEN_DISPLAY_NAMES[problem],
+                size=18,
+                fill=color,
+                weight=750,
+            ),
+            svg_text(
+                x + width - 24,
+                y + 35,
+                (
+                    f"exact  {strict}/{len(records)} · "
+                    f"{isolated}/{len(records)} · {core}/{len(records)}"
+                ),
+                size=13,
+                fill=MUTED,
+                anchor="end",
+            ),
+        ]
+    )
+    plot_x = x + 58
+    plot_y = y + 58
+    plot_width = width - 88
+    plot_height = height - 100
+    for percent in (0, 50, 100):
+        grid_y = plot_y + plot_height * (1 - percent / 100)
+        svg.extend(
+            [
+                (
+                    f'<line x1="{plot_x}" y1="{grid_y:.1f}" '
+                    f'x2="{plot_x + plot_width}" y2="{grid_y:.1f}" '
+                    f'stroke="{GRID}" stroke-width="1"/>'
+                ),
+                svg_text(
+                    plot_x - 9,
+                    grid_y + 4,
+                    f"{percent}%",
+                    size=11,
+                    fill=MUTED,
+                    anchor="end",
+                ),
+            ]
+        )
+    fields = [
+        ("strict_pass_rate", STRICT),
+        ("isolated_pass_rate", ISOLATED),
+        ("core_pass_rate", CORE),
+    ]
+    for field, field_color in fields:
+        points_with_indexes: list[tuple[float, float, int]] = []
+        for index, record in enumerate(records):
+            point_x = plot_x + index * plot_width / max(1, len(records) - 1)
+            point_y = plot_y + plot_height * (1 - float(record[field]))
+            points_with_indexes.append((point_x, point_y, index))
+        points = [
+            (point_x, point_y)
+            for point_x, point_y, _ in points_with_indexes
+        ]
+        svg.append(
+            f'<path d="{path_from(points)}" fill="none" '
+            f'stroke="{field_color}" stroke-width="3.5" '
+            'stroke-linejoin="round" stroke-linecap="round"/>'
+        )
+        for point_x, point_y, index in points_with_indexes:
+            solved = records[index][field] == 1
+            radius = 5.5 if solved else 4.0
+            svg.append(
+                f'<circle cx="{point_x:.1f}" cy="{point_y:.1f}" '
+                f'r="{radius}" fill="{field_color}" '
+                f'stroke="{PANEL}" stroke-width="2"/>'
+            )
+    for index, record in enumerate(records):
+        point_x = plot_x + index * plot_width / max(1, len(records) - 1)
+        svg.append(
+            svg_text(
+                point_x,
+                y + height - 13,
+                f"C{record['idx']}",
+                size=11,
+                fill=MUTED,
+                anchor="middle",
+            )
+        )
+
+
+def render_qwen_trajectory(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
+    width = 1600
+    height = 1220
+    title = "Strong starts rarely survived the full trajectory"
+    svg = svg_start(width, height, title)
+    svg.extend(
+        [
+            svg_text(80, 72, title, size=36, weight=750),
+            svg_text(
+                80,
+                108,
+                "Pass rate at every checkpoint; larger dots mark an exact 100% solve.",
+                size=18,
+                fill=MUTED,
+            ),
+        ]
+    )
+    add_legend(
+        svg,
+        [
+            ("All tests", STRICT),
+            ("Current checkpoint", ISOLATED),
+            ("Core contract", CORE),
+        ],
+        x=820,
+        y=78,
+        step=225,
+    )
+    for index, problem in enumerate(QWEN_DISPLAY_NAMES):
+        row = index // 2
+        column = index % 2
+        add_qwen_rate_panel(
+            svg,
+            groups[problem],
+            x=60 + column * 760,
+            y=145 + row * 250,
+            width=720,
+            height=220,
+        )
+    svg.append(
+        svg_text(
+            800,
+            1180,
+            "Five checkpoints passed strictly; no problem’s final checkpoint did.",
+            size=16,
+            fill=MUTED,
+            anchor="middle",
+        )
+    )
+    write_svg(spec.image_path("trajectory"), svg)
+
+
+def render_qwen_efficiency(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
+    width = 1600
+    height = 990
+    title = "Nearly half the spend went to one trajectory"
+    svg = svg_start(width, height, title)
+    all_records = [record for records in groups.values() for record in records]
+    rows = sorted(
+        groups.items(),
+        key=lambda item: sum(record["cost"] for record in item[1]),
+        reverse=True,
+    )
+    svg.extend(
+        [
+            svg_text(80, 72, title, size=36, weight=750),
+            svg_text(
+                80,
+                108,
+                (
+                    "Billed API cost; time is summed within each sequential "
+                    "problem trajectory."
+                ),
+                size=18,
+                fill=MUTED,
+            ),
+        ]
+    )
+    plot_x = 350
+    plot_width = 850
+    max_cost = 16
+    for tick in range(0, max_cost + 1, 4):
+        tick_x = plot_x + plot_width * tick / max_cost
+        svg.extend(
+            [
+                (
+                    f'<line x1="{tick_x:.1f}" y1="150" '
+                    f'x2="{tick_x:.1f}" y2="850" '
+                    f'stroke="{GRID}" stroke-width="1"/>'
+                ),
+                svg_text(
+                    tick_x,
+                    880,
+                    f"${tick}",
+                    size=13,
+                    fill=MUTED,
+                    anchor="middle",
+                ),
+            ]
+        )
+    for index, (problem, records) in enumerate(rows):
+        y = 175 + index * 84
+        cost = sum(record["cost"] for record in records)
+        minutes = sum(record["duration"] for record in records) / 60
+        strict = sum(record["strict_pass_rate"] == 1 for record in records)
+        bar_width = plot_width * cost / max_cost
+        svg.extend(
+            [
+                svg_text(
+                    80,
+                    y + 27,
+                    QWEN_DISPLAY_NAMES[problem],
+                    size=17,
+                    weight=650,
+                ),
+                (
+                    f'<rect x="{plot_x}" y="{y}" width="{plot_width}" '
+                    f'height="38" rx="10" fill="{PANEL}"/>'
+                ),
+                (
+                    f'<rect x="{plot_x}" y="{y}" width="{bar_width:.1f}" '
+                    f'height="38" rx="10" '
+                    f'fill="{QWEN_PROBLEM_COLORS[problem]}"/>'
+                ),
+                svg_text(
+                    1235,
+                    y + 27,
+                    (
+                        f"${cost:.2f}  ·  {minutes / 60:.1f}h  ·  "
+                        f"{strict}/{len(records)} strict"
+                    ),
+                    size=15,
+                    fill=MUTED,
+                ),
+            ]
+        )
+
+    total_cost = sum(record["cost"] for record in all_records)
+    summed_hours = sum(record["duration"] for record in all_records) / 3600
+    total_steps = sum(record["steps"] for record in all_records)
+    output_tokens = sum(record["output"] for record in all_records)
+    svg.extend(
+        [
+            (
+                '<rect x="80" y="910" width="1440" height="58" '
+                f'rx="16" fill="{PANEL}"/>'
+            ),
+            svg_text(115, 947, f"API cost  ${total_cost:.2f}", size=17, weight=700),
+            svg_text(
+                430,
+                947,
+                f"Summed agent time  {summed_hours:.1f}h",
+                size=17,
+                weight=700,
+            ),
+            svg_text(850, 947, f"Agent steps  {total_steps:,}", size=17, weight=700),
+            svg_text(
+                1180,
+                947,
+                f"Output tokens  {output_tokens / 1_000_000:.2f}M",
+                size=17,
+                weight=700,
+            ),
+        ]
+    )
+    write_svg(spec.image_path("efficiency"), svg)
+
+
+def render_qwen_code_health(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
+    width = 1600
+    height = 1070
+    title = "More checkpoints brought much more code—and complexity"
+    svg = svg_start(width, height, title)
+    first_records = [records[0] for records in groups.values()]
+    final_records = [records[-1] for records in groups.values()]
+    first_loc = sum(record["loc"] for record in first_records)
+    final_loc = sum(record["loc"] for record in final_records)
+    first_high = sum(record["cc_high_count"] for record in first_records)
+    final_high = sum(record["cc_high_count"] for record in final_records)
+    max_cc = max(record["cc_max"] for records in groups.values() for record in records)
+    svg.extend(
+        [
+            svg_text(80, 72, title, size=36, weight=750),
+            svg_text(
+                80,
+                108,
+                "First-to-final source volume and maximum cyclomatic complexity.",
+                size=18,
+                fill=MUTED,
+            ),
+        ]
+    )
+    summary = [
+        ("Combined LOC", f"{first_loc:,} → {final_loc:,}"),
+        ("Growth", f"+{(final_loc / first_loc - 1):.0%}"),
+        ("High-CC functions", f"{first_high} → {final_high}"),
+        ("Peak CC", str(max_cc)),
+    ]
+    for index, (label, value) in enumerate(summary):
+        x = 80 + index * 365
+        svg.extend(
+            [
+                (
+                    f'<rect x="{x}" y="142" width="340" height="108" '
+                    f'rx="18" fill="{PANEL}"/>'
+                ),
+                svg_text(x + 22, 176, label, size=14, fill=MUTED),
+                svg_text(x + 22, 222, value, size=29, weight=750),
+            ]
+        )
+
+    maximum_loc = max(record["loc"] for record in final_records)
+    plot_x = 355
+    plot_width = 850
+    svg.extend(
+        [
+            svg_text(80, 293, "Problem", size=14, fill=MUTED, weight=650),
+            svg_text(355, 293, "Lines of code", size=14, fill=MUTED, weight=650),
+            svg_text(1290, 293, "Max CC", size=14, fill=MUTED, weight=650),
+        ]
+    )
+    for index, problem in enumerate(QWEN_DISPLAY_NAMES):
+        records = groups[problem]
+        first = records[0]
+        final = records[-1]
+        y = 325 + index * 82
+        first_width = plot_width * first["loc"] / maximum_loc
+        final_width = plot_width * final["loc"] / maximum_loc
+        growth = (
+            f"{final['loc'] / first['loc']:.1f}×"
+            if first["loc"]
+            else "new"
+        )
+        label_inside = final_width > 700
+        label_x = (
+            plot_x + final_width - 16
+            if label_inside
+            else plot_x + final_width + 12
+        )
+        color = QWEN_PROBLEM_COLORS[problem]
+        svg.extend(
+            [
+                svg_text(
+                    80,
+                    y + 29,
+                    QWEN_DISPLAY_NAMES[problem],
+                    size=16,
+                    weight=650,
+                ),
+                (
+                    f'<rect x="{plot_x}" y="{y + 4}" '
+                    f'width="{first_width:.1f}" height="12" rx="6" '
+                    f'fill="{MUTED}" opacity="0.62"/>'
+                ),
+                (
+                    f'<rect x="{plot_x}" y="{y + 23}" '
+                    f'width="{final_width:.1f}" height="23" rx="7" '
+                    f'fill="{color}"/>'
+                ),
+                svg_text(
+                    label_x,
+                    y + 42,
+                    (
+                        f"{first['loc']:,} → {final['loc']:,}  "
+                        f"({growth})"
+                    ),
+                    size=13,
+                    fill=BACKGROUND if label_inside else color,
+                    weight=700,
+                    anchor="end" if label_inside else "start",
+                ),
+                svg_text(
+                    1290,
+                    y + 32,
+                    f"{first['cc_max']} → {final['cc_max']}",
+                    size=17,
+                    fill=STRICT if final["cc_max"] > 30 else TEXT,
+                    weight=700,
+                ),
+            ]
+        )
+    svg.extend(
+        [
+            svg_text(355, 1014, "first checkpoint", size=13, fill=MUTED),
+            (
+                f'<rect x="319" y="1003" width="24" height="10" '
+                f'rx="5" fill="{MUTED}" opacity="0.62"/>'
+            ),
+            svg_text(605, 1014, "final checkpoint", size=13, fill=MUTED),
+            (
+                f'<rect x="569" y="1000" width="24" height="16" '
+                f'rx="5" fill="{CORE}"/>'
+            ),
+            svg_text(
+                1520,
+                1014,
+                "CC > 30 is highlighted",
+                size=13,
+                fill=MUTED,
+                anchor="end",
+            ),
+        ]
+    )
+    write_svg(spec.image_path("code-health"), svg)
+
+
+def add_comparison_panel(
+    svg: list[str],
+    *,
+    x: float,
+    y: float,
+    width: float,
+    height: float,
+    title: str,
+    subtitle: str,
+    rows: list[tuple[str, int, int, str]],
+) -> None:
+    svg.extend(
+        [
+            (
+                f'<rect x="{x}" y="{y}" width="{width}" height="{height}" '
+                f'rx="22" fill="{PANEL}"/>'
+            ),
+            svg_text(x + 28, y + 43, title, size=21, weight=750),
+            svg_text(x + 28, y + 72, subtitle, size=14, fill=MUTED),
+        ]
+    )
+    plot_x = x + 305
+    plot_width = width - 345
+    top = y + 116
+    row_bottom = y + height - 105
+    axis_y = y + height - 50
+    for percent in (0, 10, 20, 30, 40):
+        tick_x = plot_x + plot_width * percent / 40
+        svg.extend(
+            [
+                (
+                    f'<line x1="{tick_x:.1f}" y1="{top - 16}" '
+                    f'x2="{tick_x:.1f}" y2="{axis_y}" '
+                    f'stroke="{GRID}" stroke-width="1"/>'
+                ),
+                svg_text(
+                    tick_x,
+                    axis_y + 25,
+                    f"{percent}%",
+                    size=12,
+                    fill=MUTED,
+                    anchor="middle",
+                ),
+            ]
+        )
+    row_gap = (row_bottom - top) / max(1, len(rows) - 1)
+    for index, (label, solved, total, source) in enumerate(rows):
+        row_y = top + index * row_gap
+        rate = solved / total
+        color = {
+            "qwen": ISOLATED,
+            "local": VERBOSITY,
+            "external": "#64748b",
+        }[source]
+        svg.extend(
+            [
+                svg_text(
+                    x + 28,
+                    row_y + 18,
+                    label,
+                    size=14,
+                    fill=TEXT if source == "qwen" else MUTED,
+                    weight=700 if source == "qwen" else 500,
+                ),
+                (
+                    f'<rect x="{plot_x}" y="{row_y}" width="{plot_width}" '
+                    f'height="27" rx="8" fill="{BACKGROUND}"/>'
+                ),
+                (
+                    f'<rect x="{plot_x}" y="{row_y}" '
+                    f'width="{plot_width * rate / 0.4:.1f}" '
+                    f'height="27" rx="8" fill="{color}"/>'
+                ),
+                svg_text(
+                    x + width - 26,
+                    row_y + 19,
+                    f"{solved}/{total}  {rate:.1%}",
+                    size=13,
+                    fill=color,
+                    weight=750,
+                    anchor="end",
+                ),
+            ]
+        )
+
+
+def load_qwen_comparisons(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> list[dict[str, Any]]:
+    data = json.loads((spec.data_path / "comparisons.json").read_text())
+    subsets: list[dict[str, Any]] = []
+    for subset in data["subsets"]:
+        records = subset_records(groups, set(subset["problems"]))
+        qwen_strict, _, _ = exact_summary(records)
+        rows = []
+        for row in subset["rows"]:
+            solved = qwen_strict if row["source"] == "qwen" else row["solved"]
+            total = len(records) if row["source"] == "qwen" else row["total"]
+            rows.append((row["label"], solved, total, row["source"]))
+        subsets.append(
+            {
+                "title": subset["title"],
+                "subtitle": subset["subtitle"],
+                "rows": rows,
+            }
+        )
+    return subsets
+
+
+def render_qwen_comparison(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
+    width = 1600
+    height = 1000
+    title = "Related problem lists, different system scores"
+    svg = svg_start(width, height, title)
+    svg.extend(
+        [
+            svg_text(80, 72, title, size=36, weight=750),
+            svg_text(
+                80,
+                108,
+                (
+                    "Strict checkpoints solved: every current and inherited "
+                    "test passed."
+                ),
+                size=18,
+                fill=MUTED,
+            ),
+        ]
+    )
+    left, right = load_qwen_comparisons(spec, groups)
+    add_comparison_panel(
+        svg,
+        x=60,
+        y=150,
+        width=720,
+        height=710,
+        title=left["title"],
+        subtitle=left["subtitle"],
+        rows=left["rows"],
+    )
+    add_comparison_panel(
+        svg,
+        x=820,
+        y=150,
+        width=720,
+        height=710,
+        title=right["title"],
+        subtitle=right["subtitle"],
+        rows=right["rows"],
+    )
+    legend = [
+        ("This Qwen run", ISOLATED),
+        ("Reports in this repository", VERBOSITY),
+        ("HumanLayer reports", "#64748b"),
+    ]
+    cursor = 230
+    for label, color in legend:
+        svg.extend(
+            [
+                f'<rect x="{cursor}" y="900" width="18" height="18" '
+                f'rx="5" fill="{color}"/>',
+                svg_text(cursor + 29, 915, label, size=14, fill=MUTED),
+            ]
+        )
+        cursor += 390
+    svg.append(
+        svg_text(
+            800,
+            960,
+            (
+                "Single trajectories; models, agents, serving stacks and benchmark "
+                "revisions differ. Directional comparison only."
+            ),
+            size=15,
+            fill=MUTED,
+            anchor="middle",
+        )
+    )
+    write_svg(spec.image_path("comparison"), svg)
+
+
+def render_qwen_charts(
+    spec: RunSpec,
+    groups: dict[str, list[dict[str, Any]]],
+) -> None:
+    render_qwen_scorecard(spec, groups)
+    render_qwen_trajectory(spec, groups)
+    render_qwen_efficiency(spec, groups)
+    render_qwen_code_health(spec, groups)
+    render_qwen_comparison(spec, groups)
+
+
 def load_trajectory(data_dir: str) -> dict[tuple[str, int], dict[str, Any]]:
     path = DATA_ROOT / data_dir / "trajectory.jsonl"
     entries: dict[tuple[str, int], dict[str, Any]] = {}
@@ -872,6 +1764,9 @@ def main() -> None:
     records = load_records(spec.input_path)
     groups = group_records(records)
     write_csv(spec.csv_path, records)
+    if spec.kind == "qwen":
+        render_qwen_charts(spec, groups)
+        return
     render_scorecard(spec, groups)
     render_correctness(spec, groups)
     render_quality(spec, groups)

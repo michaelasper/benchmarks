@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1070" role="img" aria-label="More checkpoints brought much more code—and complexity">
+<title>More checkpoints brought much more code—and complexity</title>
+<defs><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.24"/></filter></defs>
+<rect width="1600" height="1070" fill="#0b1020"/>
+<text x="80.0" y="72.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="750" text-anchor="start">More checkpoints brought much more code—and complexity</text>
+<text x="80.0" y="108.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" text-anchor="start">First-to-final source volume and maximum cyclomatic complexity.</text>
+<rect x="80" y="142" width="340" height="108" rx="18" fill="#121a2c"/>
+<text x="102.0" y="176.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Combined LOC</text>
+<text x="102.0" y="222.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="750" text-anchor="start">2,098 → 11,558</text>
+<rect x="445" y="142" width="340" height="108" rx="18" fill="#121a2c"/>
+<text x="467.0" y="176.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Growth</text>
+<text x="467.0" y="222.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="750" text-anchor="start">+451%</text>
+<rect x="810" y="142" width="340" height="108" rx="18" fill="#121a2c"/>
+<text x="832.0" y="176.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">High-CC functions</text>
+<text x="832.0" y="222.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="750" text-anchor="start">20 → 78</text>
+<rect x="1175" y="142" width="340" height="108" rx="18" fill="#121a2c"/>
+<text x="1197.0" y="176.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start">Peak CC</text>
+<text x="1197.0" y="222.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="750" text-anchor="start">233</text>
+<text x="80.0" y="293.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="650" text-anchor="start">Problem</text>
+<text x="355.0" y="293.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="650" text-anchor="start">Lines of code</text>
+<text x="1290.0" y="293.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="650" text-anchor="start">Max CC</text>
+<text x="80.0" y="354.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="650" text-anchor="start">Circuit evaluator</text>
+<rect x="355" y="329" width="145.4" height="12" rx="6" fill="#9aa8c4" opacity="0.62"/>
+<rect x="355" y="348" width="850.0" height="23" rx="7" fill="#38bdf8"/>
+<text x="1189.0" y="367.0" fill="#0b1020" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="end">702 → 4,105  (5.8×)</text>
+<text x="1290.0" y="357.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start">20 → 233</text>
+<text x="80.0" y="436.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="650" text-anchor="start">Database migration</text>
+<rect x="355" y="411" width="90.9" height="12" rx="6" fill="#9aa8c4" opacity="0.62"/>
+<rect x="355" y="430" width="214.1" height="23" rx="7" fill="#f59e0b"/>
+<text x="581.1" y="449.0" fill="#f59e0b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="start">439 → 1,034  (2.4×)</text>
+<text x="1290.0" y="439.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start">19 → 56</text>
+<text x="80.0" y="518.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="650" text-anchor="start">Dynamic config API</text>
+<rect x="355" y="493" width="0.0" height="12" rx="6" fill="#9aa8c4" opacity="0.62"/>
+<rect x="355" y="512" width="517.9" height="23" rx="7" fill="#a78bfa"/>
+<text x="884.9" y="531.0" fill="#a78bfa" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="start">0 → 2,501  (new)</text>
+<text x="1290.0" y="521.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start">0 → 31</text>
+<text x="80.0" y="600.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="650" text-anchor="start">xjq</text>
+<rect x="355" y="575" width="20.1" height="12" rx="6" fill="#9aa8c4" opacity="0.62"/>
+<rect x="355" y="594" width="87.0" height="23" rx="7" fill="#2dd4bf"/>
+<text x="454.0" y="613.0" fill="#2dd4bf" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="start">97 → 420  (4.3×)</text>
+<text x="1290.0" y="603.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start">13 → 25</text>
+<text x="80.0" y="682.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="650" text-anchor="start">File backup</text>
+<rect x="355" y="657" width="53.6" height="12" rx="6" fill="#9aa8c4" opacity="0.62"/>
+<rect x="355" y="676" width="105.4" height="23" rx="7" fill="#fb7185"/>
+<text x="472.4" y="695.0" fill="#fb7185" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="start">259 → 509  (2.0×)</text>
+<text x="1290.0" y="685.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start">17 → 43</text>
+<text x="80.0" y="764.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="650" text-anchor="start">DAG execution</text>
+<rect x="355" y="739" width="0.0" height="12" rx="6" fill="#9aa8c4" opacity="0.62"/>
+<rect x="355" y="758" width="337.1" height="23" rx="7" fill="#f97316"/>
+<text x="704.1" y="777.0" fill="#f97316" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="start">0 → 1,628  (new)</text>
+<text x="1290.0" y="767.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start">0 → 34</text>
+<text x="80.0" y="846.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="650" text-anchor="start">Code search</text>
+<rect x="355" y="821" width="41.8" height="12" rx="6" fill="#9aa8c4" opacity="0.62"/>
+<rect x="355" y="840" width="72.1" height="23" rx="7" fill="#60a5fa"/>
+<text x="439.1" y="859.0" fill="#60a5fa" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="start">202 → 348  (1.7×)</text>
+<text x="1290.0" y="849.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start">22 → 32</text>
+<text x="80.0" y="928.0" fill="#f5f7ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="650" text-anchor="start">ETL pipeline</text>
+<rect x="355" y="903" width="82.6" height="12" rx="6" fill="#9aa8c4" opacity="0.62"/>
+<rect x="355" y="922" width="209.8" height="23" rx="7" fill="#a3e635"/>
+<text x="576.8" y="941.0" fill="#a3e635" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="start">399 → 1,013  (2.5×)</text>
+<text x="1290.0" y="931.0" fill="#ff6b6b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start">61 → 97</text>
+<text x="355.0" y="1014.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start">first checkpoint</text>
+<rect x="319" y="1003" width="24" height="10" rx="5" fill="#9aa8c4" opacity="0.62"/>
+<text x="605.0" y="1014.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start">final checkpoint</text>
+<rect x="569" y="1000" width="24" height="16" rx="5" fill="#a3e635"/>
+<text x="1520.0" y="1014.0" fill="#9aa8c4" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="end">CC &gt; 30 is highlighted</text>
+</svg>

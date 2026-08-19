@@ -1,0 +1,117 @@
+{
+  "metric": "strict checkpoints solved",
+  "notes": [
+    "Every row is a single trajectory.",
+    "Models, agents, serving stacks, reasoning settings, and run dates differ.",
+    "The circuit_eval suite changed between the two HumanLayer rounds."
+  ],
+  "subsets": [
+    {
+      "id": "opus-5",
+      "title": "Opus 5 problem list",
+      "subtitle": "3 problems · 17 checkpoints",
+      "problems": [
+        "circuit_eval",
+        "database_migration",
+        "dynamic_config_service_api"
+      ],
+      "rows": [
+        {
+          "label": "DeepSeek 0731 · pi B",
+          "solved": 5,
+          "total": 17,
+          "source": "local",
+          "report": "../../deepseek-v4-flash-0731-pi-on-slop-code-bench.md"
+        },
+        {
+          "label": "Opus 5 · Claude Code",
+          "solved": 4,
+          "total": 17,
+          "source": "external",
+          "report": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/f2bc7aec4575418d2d2e83fec078266cc56d3e6a/benchmarking-opus-5-on-slop-code-bench.md"
+        },
+        {
+          "label": "Qwen3.8-27B · pi",
+          "source": "qwen",
+          "computed_from": "checkpoint_results.jsonl"
+        },
+        {
+          "label": "DeepSeek V4 · OpenCode",
+          "solved": 3,
+          "total": 17,
+          "source": "local",
+          "report": "../../deepseek-v4-flash-on-slop-code-bench.md"
+        },
+        {
+          "label": "Opus 4.8 · Claude Code",
+          "solved": 1,
+          "total": 17,
+          "source": "external",
+          "report": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/f2bc7aec4575418d2d2e83fec078266cc56d3e6a/benchmarking-opus-5-on-slop-code-bench.md"
+        },
+        {
+          "label": "Sonnet 5 · Claude Code",
+          "solved": 1,
+          "total": 17,
+          "source": "external",
+          "report": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/f2bc7aec4575418d2d2e83fec078266cc56d3e6a/benchmarking-opus-5-on-slop-code-bench.md"
+        },
+        {
+          "label": "DeepSeek 0731 · pi A",
+          "solved": 1,
+          "total": 17,
+          "source": "local",
+          "report": "../../deepseek-v4-flash-0731-pi-on-slop-code-bench.md"
+        }
+      ]
+    },
+    {
+      "id": "fable-sol-kimi",
+      "title": "Fable, Sol and Kimi problem list",
+      "subtitle": "6 problems · 30 checkpoints",
+      "problems": [
+        "xjq",
+        "file_backup",
+        "dag_execution",
+        "circuit_eval",
+        "code_search",
+        "etl_pipeline"
+      ],
+      "rows": [
+        {
+          "label": "Fable 5 · Claude Code",
+          "solved": 10,
+          "total": 30,
+          "source": "external",
+          "report": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/f2bc7aec4575418d2d2e83fec078266cc56d3e6a/benchmarking-sol-fable-kimi-on-slop-code-bench.md"
+        },
+        {
+          "label": "GPT-5.6 Sol · Codex",
+          "solved": 10,
+          "total": 30,
+          "source": "external",
+          "report": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/f2bc7aec4575418d2d2e83fec078266cc56d3e6a/benchmarking-sol-fable-kimi-on-slop-code-bench.md"
+        },
+        {
+          "label": "Kimi K3 · Modal",
+          "solved": 8,
+          "total": 30,
+          "source": "external",
+          "report": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/f2bc7aec4575418d2d2e83fec078266cc56d3e6a/benchmarking-sol-fable-kimi-on-slop-code-bench.md"
+        },
+        {
+          "label": "Kimi K3 · Baseten",
+          "solved": 7,
+          "total": 30,
+          "source": "external",
+          "report": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/f2bc7aec4575418d2d2e83fec078266cc56d3e6a/benchmarking-sol-fable-kimi-on-slop-code-bench.md"
+        },
+        {
+          "label": "Qwen3.8-27B · pi",
+          "source": "qwen",
+          "computed_from": "checkpoint_results.jsonl"
+        }
+      ]
+    }
+  ]
+}
