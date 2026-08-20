@@ -1,0 +1,18 @@
+agent: pi-0.84.2
+environment: docker-python3.12-uv
+prompt: just-solve
+
+model:
+  provider: openrouter
+  name: glm-5.3
+
+# Pi maps xhigh to OpenRouter's maximum reasoning effort.
+thinking: xhigh
+pass_policy: all-cases
+
+# An empty list auto-discovers every available benchmark problem.
+problems: []
+
+save_dir: outputs
+save_template: >-
+  ${model.name}/${agent.type}-${agent.version}_${prompt}_max_all_${now:%Y%m%dT%H%M}

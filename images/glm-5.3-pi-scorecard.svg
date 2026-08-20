@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 570" role="img" aria-label="GLM-5.3 on the full SlopCodeBench catalogue">
+<title>GLM-5.3 on the full SlopCodeBench catalogue</title>
+<rect width="1600" height="570" fill="#0d1117"/>
+<text x="70.0" y="70.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="720" text-anchor="start" font-variant-numeric="tabular-nums">GLM-5.3 on the full SlopCodeBench catalogue</text>
+<text x="70.0" y="108.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums">36 cumulative trajectories · 196 checkpoints · pi 0.84.2 · xhigh</text>
+<line x1="70.0" y1="132.0" x2="1530.0" y2="132.0" stroke="#303844" stroke-width="1.0"/>
+<text x="70.0" y="200.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="650" text-anchor="start" font-variant-numeric="tabular-nums" letter-spacing="1.40">STRICT CHECKPOINTS</text>
+<text x="70.0" y="306.0" fill="#ff8066" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="112" font-weight="740" text-anchor="start" font-variant-numeric="tabular-nums">24</text>
+<text x="225.0" y="300.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="38" font-weight="550" text-anchor="start" font-variant-numeric="tabular-nums">/ 196</text>
+<text x="72.0" y="348.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="650" text-anchor="start" font-variant-numeric="tabular-nums">12.2% exact</text>
+<text x="72.0" y="386.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums">Every test configured for the evaluation passed.</text>
+<text x="560.0" y="213.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="620" text-anchor="start" font-variant-numeric="tabular-nums">Core contract</text>
+<rect x="790.0" y="190.0" width="600.0" height="31.0" rx="8" fill="#252c36"/>
+<rect x="790.0" y="190.0" width="398.0" height="31.0" rx="8" fill="#bfd36b"/>
+<text x="1510.0" y="213.0" fill="#bfd36b" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">130/196  66.3%</text>
+<text x="560.0" y="291.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="620" text-anchor="start" font-variant-numeric="tabular-nums">Current checkpoint</text>
+<rect x="790.0" y="268.0" width="600.0" height="31.0" rx="8" fill="#252c36"/>
+<rect x="790.0" y="268.0" width="162.2" height="31.0" rx="8" fill="#69c9be"/>
+<text x="1510.0" y="291.0" fill="#69c9be" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">53/196  27.0%</text>
+<text x="560.0" y="369.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="620" text-anchor="start" font-variant-numeric="tabular-nums">All configured tests</text>
+<rect x="790.0" y="346.0" width="600.0" height="31.0" rx="8" fill="#252c36"/>
+<rect x="790.0" y="346.0" width="73.5" height="31.0" rx="8" fill="#ff8066"/>
+<text x="1510.0" y="369.0" fill="#ff8066" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">24/196  12.2%</text>
+<text x="560.0" y="430.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums">Full problems</text>
+<text x="560.0" y="468.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="25" font-weight="690" text-anchor="start" font-variant-numeric="tabular-nums">0/36</text>
+<text x="805.0" y="430.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums">Problems with a strict pass</text>
+<text x="805.0" y="468.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="25" font-weight="690" text-anchor="start" font-variant-numeric="tabular-nums">14/36</text>
+<text x="1050.0" y="430.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums">Billed API cost</text>
+<text x="1050.0" y="468.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="25" font-weight="690" text-anchor="start" font-variant-numeric="tabular-nums">$167.52</text>
+<text x="1295.0" y="430.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums">Summed agent time</text>
+<text x="1295.0" y="468.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="25" font-weight="690" text-anchor="start" font-variant-numeric="tabular-nums">58.1h</text>
+<line x1="70.0" y1="510.0" x2="1530.0" y2="510.0" stroke="#303844" stroke-width="1.0"/>
+<text x="70.0" y="545.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums">Strict means all configured tests; 12 evaluations omitted prior tests.</text>
+</svg>

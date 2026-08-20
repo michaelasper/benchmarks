@@ -1,0 +1,10 @@
+internal_name: glm-5.3
+provider: openrouter
+pricing:
+  input: 1.4
+  output: 4.4
+  cache_read: 0.26
+aliases:
+  - z-ai/glm-5.3
+provider_slugs:
+  openrouter: z-ai/glm-5.3

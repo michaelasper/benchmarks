@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 940" role="img" aria-label="circuit_eval lifts both GLM subset scores">
+<title>circuit_eval lifts both GLM subset scores</title>
+<rect width="1600" height="940" fill="#0d1117"/>
+<text x="70.0" y="70.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="720" text-anchor="start" font-variant-numeric="tabular-nums">circuit_eval lifts both GLM subset scores</text>
+<text x="70.0" y="108.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums">Strict checkpoints solved; all bars share the same 0–50% scale.</text>
+<line x1="70.0" y1="132.0" x2="1530.0" y2="132.0" stroke="#303844" stroke-width="1.0"/>
+<text x="60.0" y="185.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums">Opus 5 problem list</text>
+<text x="60.0" y="217.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums">3 problems · 17 checkpoints</text>
+<line x1="345.0" y1="249.0" x2="345.0" y2="821.0" stroke="#303844" stroke-width="1.0"/>
+<text x="345.0" y="845.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">0%</text>
+<line x1="413.0" y1="249.0" x2="413.0" y2="821.0" stroke="#303844" stroke-width="1.0"/>
+<text x="413.0" y="845.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">10%</text>
+<line x1="481.0" y1="249.0" x2="481.0" y2="821.0" stroke="#303844" stroke-width="1.0"/>
+<text x="481.0" y="845.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">20%</text>
+<line x1="549.0" y1="249.0" x2="549.0" y2="821.0" stroke="#303844" stroke-width="1.0"/>
+<text x="549.0" y="845.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">30%</text>
+<line x1="617.0" y1="249.0" x2="617.0" y2="821.0" stroke="#303844" stroke-width="1.0"/>
+<text x="617.0" y="845.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">40%</text>
+<line x1="685.0" y1="249.0" x2="685.0" y2="821.0" stroke="#303844" stroke-width="1.0"/>
+<text x="685.0" y="845.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">50%</text>
+<text x="60.0" y="289.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums">GLM-5.3 · pi</text>
+<rect x="345.0" y="269.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="345.0" y="269.0" width="320.0" height="27.0" rx="7" fill="#ff8066"/>
+<text x="760.0" y="289.0" fill="#ff8066" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">8/17  47.1%</text>
+<text x="345.0" y="317.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="620" text-anchor="start" font-variant-numeric="tabular-nums">without circuit_eval  1/9</text>
+<text x="60.0" y="357.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">DeepSeek 0731 · pi B</text>
+<rect x="345.0" y="337.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="345.0" y="337.0" width="200.0" height="27.0" rx="7" fill="#d7a85c"/>
+<text x="760.0" y="357.0" fill="#d7a85c" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">5/17  29.4%</text>
+<text x="60.0" y="425.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">Opus 5 · Claude Code</text>
+<rect x="345.0" y="405.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="345.0" y="405.0" width="160.0" height="27.0" rx="7" fill="#7f8a98"/>
+<text x="760.0" y="425.0" fill="#7f8a98" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">4/17  23.5%</text>
+<text x="60.0" y="493.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">Qwen3.8-27B · pi</text>
+<rect x="345.0" y="473.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="345.0" y="473.0" width="120.0" height="27.0" rx="7" fill="#69c9be"/>
+<text x="760.0" y="493.0" fill="#69c9be" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">3/17  17.6%</text>
+<text x="60.0" y="561.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">DeepSeek V4 · OpenCode</text>
+<rect x="345.0" y="541.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="345.0" y="541.0" width="120.0" height="27.0" rx="7" fill="#d7a85c"/>
+<text x="760.0" y="561.0" fill="#d7a85c" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">3/17  17.6%</text>
+<text x="60.0" y="629.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">Opus 4.8 · Claude Code</text>
+<rect x="345.0" y="609.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="345.0" y="609.0" width="40.0" height="27.0" rx="7" fill="#7f8a98"/>
+<text x="760.0" y="629.0" fill="#7f8a98" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">1/17  5.9%</text>
+<text x="60.0" y="697.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">Sonnet 5 · Claude Code</text>
+<rect x="345.0" y="677.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="345.0" y="677.0" width="40.0" height="27.0" rx="7" fill="#7f8a98"/>
+<text x="760.0" y="697.0" fill="#7f8a98" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">1/17  5.9%</text>
+<text x="60.0" y="765.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">DeepSeek 0731 · pi A</text>
+<rect x="345.0" y="745.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="345.0" y="745.0" width="40.0" height="27.0" rx="7" fill="#d7a85c"/>
+<text x="760.0" y="765.0" fill="#d7a85c" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">1/17  5.9%</text>
+<text x="840.0" y="185.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums">Fable, Sol and Kimi problem list</text>
+<text x="840.0" y="217.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums">6 problems · 30 checkpoints</text>
+<line x1="1125.0" y1="249.0" x2="1125.0" y2="685.0" stroke="#303844" stroke-width="1.0"/>
+<text x="1125.0" y="709.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">0%</text>
+<line x1="1193.0" y1="249.0" x2="1193.0" y2="685.0" stroke="#303844" stroke-width="1.0"/>
+<text x="1193.0" y="709.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">10%</text>
+<line x1="1261.0" y1="249.0" x2="1261.0" y2="685.0" stroke="#303844" stroke-width="1.0"/>
+<text x="1261.0" y="709.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">20%</text>
+<line x1="1329.0" y1="249.0" x2="1329.0" y2="685.0" stroke="#303844" stroke-width="1.0"/>
+<text x="1329.0" y="709.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">30%</text>
+<line x1="1397.0" y1="249.0" x2="1397.0" y2="685.0" stroke="#303844" stroke-width="1.0"/>
+<text x="1397.0" y="709.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">40%</text>
+<line x1="1465.0" y1="249.0" x2="1465.0" y2="685.0" stroke="#303844" stroke-width="1.0"/>
+<text x="1465.0" y="709.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">50%</text>
+<text x="840.0" y="289.0" fill="#f2efe7" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums">GLM-5.3 · pi</text>
+<rect x="1125.0" y="269.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="1125.0" y="269.0" width="226.7" height="27.0" rx="7" fill="#ff8066"/>
+<text x="1540.0" y="289.0" fill="#ff8066" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">10/30  33.3%</text>
+<text x="1125.0" y="317.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="620" text-anchor="start" font-variant-numeric="tabular-nums">without circuit_eval  3/22</text>
+<text x="840.0" y="357.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">Fable 5 · Claude Code</text>
+<rect x="1125.0" y="337.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="1125.0" y="337.0" width="226.7" height="27.0" rx="7" fill="#7f8a98"/>
+<text x="1540.0" y="357.0" fill="#7f8a98" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">10/30  33.3%</text>
+<text x="840.0" y="425.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">GPT-5.6 Sol · Codex</text>
+<rect x="1125.0" y="405.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="1125.0" y="405.0" width="226.7" height="27.0" rx="7" fill="#7f8a98"/>
+<text x="1540.0" y="425.0" fill="#7f8a98" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">10/30  33.3%</text>
+<text x="840.0" y="493.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">Kimi K3 · Modal</text>
+<rect x="1125.0" y="473.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="1125.0" y="473.0" width="181.3" height="27.0" rx="7" fill="#7f8a98"/>
+<text x="1540.0" y="493.0" fill="#7f8a98" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">8/30  26.7%</text>
+<text x="840.0" y="561.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">Kimi K3 · Baseten</text>
+<rect x="1125.0" y="541.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="1125.0" y="541.0" width="158.7" height="27.0" rx="7" fill="#7f8a98"/>
+<text x="1540.0" y="561.0" fill="#7f8a98" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">7/30  23.3%</text>
+<text x="840.0" y="629.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="520" text-anchor="start" font-variant-numeric="tabular-nums">Qwen3.8-27B · pi</text>
+<rect x="1125.0" y="609.0" width="340.0" height="27.0" rx="7" fill="#252c36"/>
+<rect x="1125.0" y="609.0" width="90.7" height="27.0" rx="7" fill="#69c9be"/>
+<text x="1540.0" y="629.0" fill="#69c9be" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums">4/30  13.3%</text>
+<line x1="800.0" y1="160.0" x2="800.0" y2="810.0" stroke="#303844" stroke-width="1.0"/>
+<text x="60.0" y="850.0" fill="#ff8066" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="start" font-variant-numeric="tabular-nums">GLM-5.3 · this run</text>
+<text x="300.0" y="850.0" fill="#69c9be" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="start" font-variant-numeric="tabular-nums">Qwen · same pi setup</text>
+<text x="575.0" y="850.0" fill="#d7a85c" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="start" font-variant-numeric="tabular-nums">Local reports</text>
+<text x="780.0" y="850.0" fill="#7f8a98" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="start" font-variant-numeric="tabular-nums">HumanLayer reports</text>
+<text x="800.0" y="900.0" fill="#a6afbb" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" text-anchor="middle" font-variant-numeric="tabular-nums">One trajectory per problem and model; agents, providers, dates and suite revisions differ.</text>
+</svg>
