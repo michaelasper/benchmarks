@@ -4,6 +4,11 @@ Small, reproducible coding-agent benchmark reports.
 
 ## Reports
 
+- [Benchmarking Ox Alpha with pi on SlopCodeBench](ox-alpha-pi-on-slop-code-bench.md)
+  — 8 cumulative problems and 39 checkpoints, run through OpenRouter under pi
+  0.84.2 with xhigh configured. The stealth preview solved 7/39 checkpoints
+  strictly, 10/39 in isolation, and 21/39 at the core-contract level. August
+  20, 2026.
 - [Benchmarking GLM-5.3 with pi on the full SlopCodeBench catalogue](glm-5.3-pi-on-slop-code-bench.md)
   — the complete 36-problem, 196-checkpoint catalogue, run through OpenRouter
   under pi 0.84.2 at xhigh reasoning. GLM solved 24/196 checkpoints strictly,
@@ -42,6 +47,13 @@ Regenerate the full-catalogue GLM figures with:
 
 ```bash
 python scripts/render_glm_charts.py data/glm-5.3-pi-xhigh-2026-08-19
+```
+
+Regenerate the Ox Alpha figures with:
+
+```bash
+python scripts/render_ox_alpha_charts.py \
+  data/ox-alpha-pi-xhigh-2026-08-20
 ```
 
 No third-party Python packages are required to regenerate the figures.

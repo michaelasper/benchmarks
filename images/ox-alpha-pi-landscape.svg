@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 850" role="img" aria-labelledby="chart-title chart-description">
+<title id="chart-title">Four trajectories never reached a strict pass</title>
+<desc id="chart-description">Per-problem table of exact strict, isolated, and core solves, final total test-pass rate, and pi-recorded cost estimate.</desc>
+<rect width="1600" height="850" fill="#11100e"/>
+<text x="70.0" y="70.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="720" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Four trajectories never reached a strict pass</text>
+<text x="70.0" y="108.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Exact solves across each trajectory; final is the last snapshot’s total test-pass rate.</text>
+<line x1="70.0" y1="132.0" x2="1530.0" y2="132.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="178.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="660" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility" letter-spacing="1.00">PROBLEM</text>
+<text x="425.0" y="178.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="660" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility" letter-spacing="1.00">N</text>
+<text x="495.0" y="178.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="660" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility" letter-spacing="1.00">STRICT</text>
+<text x="665.0" y="178.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="660" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility" letter-spacing="1.00">ISOLATED</text>
+<text x="835.0" y="178.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="660" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility" letter-spacing="1.00">CORE</text>
+<text x="1250.0" y="178.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="660" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility" letter-spacing="1.00">FINAL</text>
+<text x="1525.0" y="178.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="660" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility" letter-spacing="1.00">COST</text>
+<line x1="70.0" y1="196.0" x2="1530.0" y2="196.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="239.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="650" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Circuit evaluator</text>
+<text x="425.0" y="239.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="400" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">8</text>
+<text x="495.0" y="239.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">3/8</text>
+<rect x="495.0" y="250.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="495.0" y="250.0" width="40.5" height="8.0" rx="4" fill="#ef806d"/>
+<text x="665.0" y="239.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">4/8</text>
+<rect x="665.0" y="250.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="665.0" y="250.0" width="54.0" height="8.0" rx="4" fill="#73b6aa"/>
+<text x="835.0" y="239.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">6/8</text>
+<rect x="835.0" y="250.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="835.0" y="250.0" width="81.0" height="8.0" rx="4" fill="#b5c774"/>
+<rect x="1025.0" y="221.0" width="95.0" height="24.0" rx="6" fill="#292722"/>
+<rect x="1025.0" y="221.0" width="88.3" height="24.0" rx="6" fill="#e5a84b"/>
+<text x="1250.0" y="239.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">526/566  92.9%</text>
+<text x="1525.0" y="239.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$2.04</text>
+<line x1="70.0" y1="267.0" x2="1530.0" y2="267.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="309.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="650" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Code search</text>
+<text x="425.0" y="309.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="400" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">5</text>
+<text x="495.0" y="309.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">2/5</text>
+<rect x="495.0" y="320.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="495.0" y="320.0" width="43.2" height="8.0" rx="4" fill="#ef806d"/>
+<text x="665.0" y="309.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">2/5</text>
+<rect x="665.0" y="320.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="665.0" y="320.0" width="43.2" height="8.0" rx="4" fill="#73b6aa"/>
+<text x="835.0" y="309.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">2/5</text>
+<rect x="835.0" y="320.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="835.0" y="320.0" width="43.2" height="8.0" rx="4" fill="#b5c774"/>
+<rect x="1025.0" y="291.0" width="95.0" height="24.0" rx="6" fill="#292722"/>
+<rect x="1025.0" y="291.0" width="8.2" height="24.0" rx="6" fill="#e5a84b"/>
+<text x="1250.0" y="309.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">9/104  8.7%</text>
+<text x="1525.0" y="309.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$1.48</text>
+<line x1="70.0" y1="337.0" x2="1530.0" y2="337.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="379.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="650" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Database migration</text>
+<text x="425.0" y="379.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="400" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">5</text>
+<text x="495.0" y="379.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">1/5</text>
+<rect x="495.0" y="390.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="495.0" y="390.0" width="21.6" height="8.0" rx="4" fill="#ef806d"/>
+<text x="665.0" y="379.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">1/5</text>
+<rect x="665.0" y="390.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="665.0" y="390.0" width="21.6" height="8.0" rx="4" fill="#73b6aa"/>
+<text x="835.0" y="379.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">2/5</text>
+<rect x="835.0" y="390.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="835.0" y="390.0" width="43.2" height="8.0" rx="4" fill="#b5c774"/>
+<rect x="1025.0" y="361.0" width="95.0" height="24.0" rx="6" fill="#292722"/>
+<rect x="1025.0" y="361.0" width="72.1" height="24.0" rx="6" fill="#e5a84b"/>
+<text x="1250.0" y="379.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">104/137  75.9%</text>
+<text x="1525.0" y="379.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$1.16</text>
+<line x1="70.0" y1="407.0" x2="1530.0" y2="407.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="449.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="650" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">xjq</text>
+<text x="425.0" y="449.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="400" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">5</text>
+<text x="495.0" y="449.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">1/5</text>
+<rect x="495.0" y="460.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="495.0" y="460.0" width="21.6" height="8.0" rx="4" fill="#ef806d"/>
+<text x="665.0" y="449.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">2/5</text>
+<rect x="665.0" y="460.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="665.0" y="460.0" width="43.2" height="8.0" rx="4" fill="#73b6aa"/>
+<text x="835.0" y="449.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">3/5</text>
+<rect x="835.0" y="460.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="835.0" y="460.0" width="64.8" height="8.0" rx="4" fill="#b5c774"/>
+<rect x="1025.0" y="431.0" width="95.0" height="24.0" rx="6" fill="#292722"/>
+<rect x="1025.0" y="431.0" width="91.0" height="24.0" rx="6" fill="#e5a84b"/>
+<text x="1250.0" y="449.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">160/167  95.8%</text>
+<text x="1525.0" y="449.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$0.26</text>
+<line x1="70.0" y1="477.0" x2="1530.0" y2="477.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="519.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="650" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Dynamic config API</text>
+<text x="425.0" y="519.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="400" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">4</text>
+<text x="495.0" y="519.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">0/4</text>
+<rect x="495.0" y="530.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="495.0" y="530.0" width="0.0" height="8.0" rx="4" fill="#ef806d"/>
+<text x="665.0" y="519.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">1/4</text>
+<rect x="665.0" y="530.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="665.0" y="530.0" width="27.0" height="8.0" rx="4" fill="#73b6aa"/>
+<text x="835.0" y="519.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">2/4</text>
+<rect x="835.0" y="530.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="835.0" y="530.0" width="54.0" height="8.0" rx="4" fill="#b5c774"/>
+<rect x="1025.0" y="501.0" width="95.0" height="24.0" rx="6" fill="#292722"/>
+<rect x="1025.0" y="501.0" width="46.9" height="24.0" rx="6" fill="#e5a84b"/>
+<text x="1250.0" y="519.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">40/81  49.4%</text>
+<text x="1525.0" y="519.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$2.47</text>
+<line x1="70.0" y1="547.0" x2="1530.0" y2="547.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="589.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="650" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">ETL pipeline</text>
+<text x="425.0" y="589.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="400" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">5</text>
+<text x="495.0" y="589.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">0/5</text>
+<rect x="495.0" y="600.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="495.0" y="600.0" width="0.0" height="8.0" rx="4" fill="#ef806d"/>
+<text x="665.0" y="589.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">0/5</text>
+<rect x="665.0" y="600.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="665.0" y="600.0" width="0.0" height="8.0" rx="4" fill="#73b6aa"/>
+<text x="835.0" y="589.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">2/5</text>
+<rect x="835.0" y="600.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="835.0" y="600.0" width="43.2" height="8.0" rx="4" fill="#b5c774"/>
+<rect x="1025.0" y="571.0" width="95.0" height="24.0" rx="6" fill="#292722"/>
+<rect x="1025.0" y="571.0" width="78.2" height="24.0" rx="6" fill="#e5a84b"/>
+<text x="1250.0" y="589.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">135/164  82.3%</text>
+<text x="1525.0" y="589.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$0.53</text>
+<line x1="70.0" y1="617.0" x2="1530.0" y2="617.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="659.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="650" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">File backup</text>
+<text x="425.0" y="659.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="400" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">4</text>
+<text x="495.0" y="659.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">0/4</text>
+<rect x="495.0" y="670.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="495.0" y="670.0" width="0.0" height="8.0" rx="4" fill="#ef806d"/>
+<text x="665.0" y="659.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">0/4</text>
+<rect x="665.0" y="670.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="665.0" y="670.0" width="0.0" height="8.0" rx="4" fill="#73b6aa"/>
+<text x="835.0" y="659.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">4/4</text>
+<rect x="835.0" y="670.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="835.0" y="670.0" width="108.0" height="8.0" rx="4" fill="#b5c774"/>
+<rect x="1025.0" y="641.0" width="95.0" height="24.0" rx="6" fill="#292722"/>
+<rect x="1025.0" y="641.0" width="63.0" height="24.0" rx="6" fill="#e5a84b"/>
+<text x="1250.0" y="659.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">59/89  66.3%</text>
+<text x="1525.0" y="659.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$0.24</text>
+<line x1="70.0" y1="687.0" x2="1530.0" y2="687.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="729.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="650" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">DAG execution</text>
+<text x="425.0" y="729.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="400" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">3</text>
+<text x="495.0" y="729.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">0/3</text>
+<rect x="495.0" y="740.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="495.0" y="740.0" width="0.0" height="8.0" rx="4" fill="#ef806d"/>
+<text x="665.0" y="729.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">0/3</text>
+<rect x="665.0" y="740.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="665.0" y="740.0" width="0.0" height="8.0" rx="4" fill="#73b6aa"/>
+<text x="835.0" y="729.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">0/3</text>
+<rect x="835.0" y="740.0" width="108.0" height="8.0" rx="4" fill="#292722"/>
+<rect x="835.0" y="740.0" width="0.0" height="8.0" rx="4" fill="#b5c774"/>
+<rect x="1025.0" y="711.0" width="95.0" height="24.0" rx="6" fill="#292722"/>
+<rect x="1025.0" y="711.0" width="65.2" height="24.0" rx="6" fill="#e5a84b"/>
+<text x="1250.0" y="729.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="680" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">35/51  68.6%</text>
+<text x="1525.0" y="729.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="650" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$1.92</text>
+<line x1="70.0" y1="757.0" x2="1530.0" y2="757.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="823.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">N = checkpoints in the cumulative trajectory.</text>
+<text x="1530.0" y="823.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Final rates below 100% are not strict solves.</text>
+</svg>

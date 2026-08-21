@@ -1,0 +1,13 @@
+# OpenRouter lists this stealth alpha as free while the preview is active.
+# Recheck the model ID and pricing before launching a long benchmark.
+internal_name: ox-alpha
+provider: openrouter
+pricing:
+  input: 0
+  output: 0
+  cache_read: 0
+  cache_write: 0
+aliases:
+  - stealth/ox-alpha
+provider_slugs:
+  openrouter: stealth/ox-alpha

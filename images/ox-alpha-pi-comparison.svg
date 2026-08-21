@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 830" role="img" aria-labelledby="chart-title chart-description">
+<title id="chart-title">Observed strict scores: GLM 11, Ox 7, Qwen 5</title>
+<desc id="chart-description">Same-39 comparison: GLM solved 11 strict, Ox 7, and Qwen 5. Pi-recorded cost estimates were 21.72, 10.10, and 30.85 dollars respectively.</desc>
+<rect width="1600" height="830" fill="#11100e"/>
+<text x="70.0" y="70.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="720" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Observed strict scores: GLM 11, Ox 7, Qwen 5</text>
+<text x="70.0" y="108.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Same listed agent and evaluation settings; pi cost estimate shown at right.</text>
+<line x1="70.0" y1="132.0" x2="1530.0" y2="132.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="178.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="660" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility" letter-spacing="1.20">EXACT CHECKPOINT SOLVES</text>
+<text x="1070.0" y="178.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="660" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility" letter-spacing="1.20">RECORDED EFFORT</text>
+<line x1="1015.0" y1="158.0" x2="1015.0" y2="680.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="253.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="720" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">GLM-5.3</text>
+<rect x="70" y="272" width="6" height="74" rx="3" fill="#81a5bd"/>
+<text x="190.0" y="285.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Core</text>
+<rect x="300.0" y="263.0" width="615.0" height="26.0" rx="6" fill="#292722"/>
+<rect x="300.0" y="263.0" width="585.7" height="26.0" rx="6" fill="#b5c774"/>
+<text x="965.0" y="283.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">26/39  66.7%</text>
+<text x="190.0" y="321.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Isolated</text>
+<rect x="300.0" y="299.0" width="615.0" height="26.0" rx="6" fill="#292722"/>
+<rect x="300.0" y="299.0" width="383.0" height="26.0" rx="6" fill="#73b6aa"/>
+<text x="965.0" y="319.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">17/39  43.6%</text>
+<text x="190.0" y="357.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Strict</text>
+<rect x="300.0" y="335.0" width="615.0" height="26.0" rx="6" fill="#292722"/>
+<rect x="300.0" y="335.0" width="247.8" height="26.0" rx="6" fill="#ef806d"/>
+<text x="965.0" y="355.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">11/39  28.2%</text>
+<text x="1070.0" y="247.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">pi cost est.</text>
+<text x="1070.0" y="283.0" fill="#81a5bd" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="710" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$21.72</text>
+<text x="1235.0" y="247.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Agent time</text>
+<text x="1235.0" y="283.0" fill="#81a5bd" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="710" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">7.2h</text>
+<text x="1400.0" y="247.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Steps</text>
+<text x="1400.0" y="283.0" fill="#81a5bd" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="710" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">2,534</text>
+<line x1="70.0" y1="362.0" x2="1530.0" y2="362.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="411.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="720" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Ox Alpha</text>
+<rect x="70" y="430" width="6" height="74" rx="3" fill="#e5a84b"/>
+<text x="190.0" y="443.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Core</text>
+<rect x="300.0" y="421.0" width="615.0" height="26.0" rx="6" fill="#292722"/>
+<rect x="300.0" y="421.0" width="473.1" height="26.0" rx="6" fill="#b5c774"/>
+<text x="965.0" y="441.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">21/39  53.8%</text>
+<text x="190.0" y="479.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Isolated</text>
+<rect x="300.0" y="457.0" width="615.0" height="26.0" rx="6" fill="#292722"/>
+<rect x="300.0" y="457.0" width="225.3" height="26.0" rx="6" fill="#73b6aa"/>
+<text x="965.0" y="477.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">10/39  25.6%</text>
+<text x="190.0" y="515.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Strict</text>
+<rect x="300.0" y="493.0" width="615.0" height="26.0" rx="6" fill="#292722"/>
+<rect x="300.0" y="493.0" width="157.7" height="26.0" rx="6" fill="#ef806d"/>
+<text x="965.0" y="513.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">7/39  17.9%</text>
+<text x="1070.0" y="405.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">pi cost est.</text>
+<text x="1070.0" y="441.0" fill="#e5a84b" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="710" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$10.10</text>
+<text x="1235.0" y="405.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Agent time</text>
+<text x="1235.0" y="441.0" fill="#e5a84b" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="710" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">4.9h</text>
+<text x="1400.0" y="405.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Steps</text>
+<text x="1400.0" y="441.0" fill="#e5a84b" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="710" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">1,695</text>
+<line x1="70.0" y1="520.0" x2="1530.0" y2="520.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="569.0" fill="#f5f1e8" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="720" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Qwen3.8-27B</text>
+<rect x="70" y="588" width="6" height="74" rx="3" fill="#918d86"/>
+<text x="190.0" y="601.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Core</text>
+<rect x="300.0" y="579.0" width="615.0" height="26.0" rx="6" fill="#292722"/>
+<rect x="300.0" y="579.0" width="383.0" height="26.0" rx="6" fill="#b5c774"/>
+<text x="965.0" y="599.0" fill="#b5c774" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">17/39  43.6%</text>
+<text x="190.0" y="637.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Isolated</text>
+<rect x="300.0" y="615.0" width="615.0" height="26.0" rx="6" fill="#292722"/>
+<rect x="300.0" y="615.0" width="180.2" height="26.0" rx="6" fill="#73b6aa"/>
+<text x="965.0" y="635.0" fill="#73b6aa" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">8/39  20.5%</text>
+<text x="190.0" y="673.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Strict</text>
+<rect x="300.0" y="651.0" width="615.0" height="26.0" rx="6" fill="#292722"/>
+<rect x="300.0" y="651.0" width="112.6" height="26.0" rx="6" fill="#ef806d"/>
+<text x="965.0" y="671.0" fill="#ef806d" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="end" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">5/39  12.8%</text>
+<text x="1070.0" y="563.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">pi cost est.</text>
+<text x="1070.0" y="599.0" fill="#918d86" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="710" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">$30.85</text>
+<text x="1235.0" y="563.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Agent time</text>
+<text x="1235.0" y="599.0" fill="#918d86" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="710" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">13.7h</text>
+<text x="1400.0" y="563.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Steps</text>
+<text x="1400.0" y="599.0" fill="#918d86" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="710" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">2,177</text>
+<line x1="70.0" y1="678.0" x2="1530.0" y2="678.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="300.0" y="720.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Bars share a 0–70% scale.</text>
+<line x1="70.0" y1="755.0" x2="1530.0" y2="755.0" stroke="#34312b" stroke-width="1.0"/>
+<text x="70.0" y="793.0" fill="#aaa397" font-family="Geist, Avenir Next, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" text-anchor="start" font-variant-numeric="tabular-nums" text-rendering="optimizeLegibility">Single trajectories; execution topology and provider pricing differ, and Qwen’s union used two invocations.</text>
+</svg>

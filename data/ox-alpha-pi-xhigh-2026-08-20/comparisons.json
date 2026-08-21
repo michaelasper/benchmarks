@@ -1,0 +1,31 @@
+{
+  "problem_set": [
+    "circuit_eval",
+    "database_migration",
+    "dynamic_config_service_api",
+    "xjq",
+    "file_backup",
+    "dag_execution",
+    "code_search",
+    "etl_pipeline"
+  ],
+  "expected_checkpoints": 39,
+  "systems": [
+    {
+      "id": "ox-alpha",
+      "label": "Ox Alpha",
+      "dataset": "ox-alpha-pi-xhigh-2026-08-20"
+    },
+    {
+      "id": "glm-5.3",
+      "label": "GLM-5.3",
+      "dataset": "glm-5.3-pi-xhigh-2026-08-19"
+    },
+    {
+      "id": "qwen3.8-27b",
+      "label": "Qwen3.8-27B",
+      "dataset": "qwen3.8-27b-pi-xhigh-2026-08-19"
+    }
+  ],
+  "comparison_note": "All rows configured pi 0.84.2, xhigh reasoning, the just-solve prompt, all-cases policy, Python 3.12 in Docker, and SlopCodeBench v1.0 at 4d38d300. Execution topology differs: GLM is filtered from its full-catalogue run, Ox used eight concurrent workers, and Qwen's union was pooled from two invocations. Each system has one observed trajectory per problem."
+}

@@ -1,0 +1,77 @@
+agent:
+  binary: pi
+  cost_limits:
+    cost_limit: 0
+    net_cost_limit: 0
+    step_limit: 0
+  env: {}
+  extra_args: []
+  timeout: 7200
+  type: pi
+  version: 0.84.2
+agent_config_path: configs/agents/pi-0.84.2.yaml
+environment:
+  commands:
+    agent_command: python
+    command: uv run
+    entry_file: '{entry_file}.py'
+  docker:
+    image: ghcr.io/astral-sh/uv:python3.12-trixie-slim
+    mount_workspace: true
+    workdir: /workspace
+  environment:
+    env:
+      PIP_CACHE_DIR: /tmp/pip-cache-dir
+      PIP_CONFIG_FILE: /tmp/pip-conf
+      UV_CACHE_DIR: /tmp/uv-cache
+  name: python3.12
+  setup:
+    eval_commands:
+    - uv init
+    - uv add -r requirements.txt
+    resume_commands:
+    - python -m venv .venv || true
+    - .venv/bin/pip install -r requirements.txt 2>/dev/null || true
+  type: docker
+environment_config_path: configs/environments/docker-python3.12-uv.yaml
+model:
+  name: ox-alpha
+  provider: openrouter
+one_shot:
+  enabled: false
+  include_first_prefix: false
+  prefix: ''
+pass_policy: all-cases
+problems:
+- circuit_eval
+- database_migration
+- dynamic_config_service_api
+- xjq
+- file_backup
+- dag_execution
+- code_search
+- etl_pipeline
+prompt_content: 'Implement a program that 100% solves the specification. That is all
+  you need to do.
+
+  {% if not is_continuation -%}
+
+  Use a virtual environment and ensure that a `requirements.txt` is present with any
+  dependencies you need to solve the problem.
+
+  {% else -%}
+
+  Keep using the same virtual environment you started with, update `requirements.txt`
+  with any new dependencies you need.
+
+  {% endif -%}
+
+
+  Your task is:
+
+  {{ spec.strip() }}
+
+  '
+prompt_path: configs/prompts/just-solve.jinja
+thinking: xhigh
+thinking_max_tokens: null

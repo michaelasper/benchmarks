@@ -1,0 +1,28 @@
+agent: pi-0.84.2
+environment: docker-python3.12-uv
+prompt: just-solve
+
+model:
+  provider: openrouter
+  name: ox-alpha
+
+thinking: xhigh
+pass_policy: all-cases
+
+# Union of the Opus and Fable/Sol/Kimi report subsets: 39 unique checkpoints.
+# circuit_eval appears in both articles and is run once here.
+# Run via ./run-ox-alpha.sh for eight parallel problem workers and concurrent
+# checkpoint evaluation (these controls are CLI-only).
+problems:
+  - circuit_eval
+  - database_migration
+  - dynamic_config_service_api
+  - xjq
+  - file_backup
+  - dag_execution
+  - code_search
+  - etl_pipeline
+
+save_dir: outputs
+save_template: >-
+  ${model.name}/${agent.type}-${agent.version}_${prompt}_xhigh_both-subsets_${now:%Y%m%dT%H%M}
